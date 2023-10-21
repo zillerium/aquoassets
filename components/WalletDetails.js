@@ -20,7 +20,7 @@ function WalletDetails() {
            // {userAddress} | Goerli | {data?.formatted} {data?.symbol}
 
   return (
-    <div style={{ background: '#3333FF', padding: '10px', borderRadius: '5px' }}>
+    <div style={{ background: '#ffffff', padding: '10px', borderRadius: '5px' }}>
       <p>
         {userAddress && (
           <span>

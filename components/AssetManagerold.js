@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { useContractRead } from "wagmi";
 import { WalletContext } from "../lib/WalletContext";
 
-function AssetManager({ contractAddress, contractABI, userAddress, queryAddress }) {
+function AssetManager({ contractAddress, contractABI, userAddress }) {
 	const contextValue = useContext(WalletContext);
 console.log("WalletContext value: ", contextValue);
 
@@ -13,9 +13,9 @@ console.log("WalletContext value: ", contextValue);
     address: contractAddress,
     abi: contractABI,
     functionName: "balanceOf",
-    args: [queryAddress],
+    args: [userAddress],
   };
-  console.log("checking balance == ", config, contractAddress, queryAddress);
+  console.log("checking balance == ", config, contractAddress, userAddress);
 
   const { data, isLoading } = useContractRead(config);
 

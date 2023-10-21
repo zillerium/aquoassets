@@ -43,13 +43,13 @@ function Home() {
     setExecWrite(true);
   };
   return (
-        <Container className="bg-black text-light">
-          <Card bg="black" text="light">
+        <Container className="bg-white text-dark">
+          <Card bg="light" text="dark">
             <Card.Header>
               <Row>
                 <Col sm={8}>
                   {" "}
-                  <h1>Name Registry for Wallets</h1>
+                  <h1>Asset Management, Liquidity and Financial Instruments</h1>
                 </Col>
                 <Col sm={4} className="text-left">
                   <WalletControls />
