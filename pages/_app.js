@@ -10,7 +10,7 @@ import { WalletContext } from "../lib/WalletContext";
 import WalletControls from "../components/WalletControls";
 
 const contractAddress = "0xCA3dE00C5Ef4332552Cd4679048514530e1e6F48";
-
+//         const { userAddress,ipfsAddress, assetDesc, assetContractAddress } = useContext(WalletContext);
 
 function MyApp({ Component, pageProps }) {
 
@@ -19,6 +19,9 @@ function MyApp({ Component, pageProps }) {
   const [execDeregister, setExecDeregister] = useState(false);
   const [readContract, setReadContract] = useState(false);
   const [userAddress, setUserAddress] = useState("");
+  const [ipfsAddress, setIpfsAddress ] = useState("");
+  const [assetDesc, setAssetDesc  ] = useState("");
+  const [assetContractAddress, setAssetContractAddress  ] = useState("");
   const [ipfsImageHash, setIpfsImageHash] = useState("");
   const [receiverAddress, setReceiverAddress] = useState("");
   const [userAddressName, setUserAddressName] = useState("");
@@ -50,6 +53,9 @@ function MyApp({ Component, pageProps }) {
           setReceiverAddress,
           ipfsImageHash,
           setIpfsImageHash,
+			ipfsAddress, setIpfsAddress,
+			assetDesc, setAssetDesc,
+			assetContractAddress, setAssetContractAddress
         }}
       >
       <Navigation />

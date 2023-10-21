@@ -4,21 +4,22 @@ import { useContractWrite, usePrepareContractWrite } from 'wagmi';
 import { WalletContext } from '../lib/WalletContext';
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
-function TransferAsset({ contractAddress, contractABI, userAddress, walletAddress, numShares }) {
+// [200~    function addAsset(string memory ipfsAddress, string memory assetDesc, address contractAddress) public returns (uint256) {
+
+function AddContract({ addContractAddress, addContractABI, userAddress,ipfsAddress, assetDesc, assetContractAddress  }) {
   const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
 
-//  const [walletAddress, setWalletAddress] = useState("");
-  //const [numShares, setNumShares] = useState(0);
-console.log("contractAddress ", contractAddress);
-console.log("userAddress ", userAddress);
-console.log("walletAddress ", walletAddress);
-console.log("numShares ", numShares);
+console.log(" add contract address ", addContractAddress);
+console.log(" user address ", userAddress);
+console.log(" ipfs address ", ipfsAddress);
+console.log(" asset desc ", assetDesc);
+console.log(" asset contract address ", assetContractAddress);
 
-  const argArr = [walletAddress, numShares]; 
+  const argArr = [ipfsAddress, assetDesc, assetContractAddress]; 
   const { config, error } = usePrepareContractWrite({
-    address: contractAddress,
-    abi: contractABI,
-    functionName: 'transfer',
+    address: addContractAddress,
+    abi: addContractABI,
+    functionName: 'addAsset',
     args: argArr,
   });
 
@@ -49,7 +50,7 @@ console.log("numShares ", numShares);
   return (
     <>
       <Button variant="primary" onClick={transferName}>
-        Confirm Transfer
+        Add Contract 
       </Button>
       {error && <div>Error in formatting {error.message}</div>}
       {writeError && <div>Error in writing to contract: {writeError}</div>}
@@ -58,5 +59,5 @@ console.log("numShares ", numShares);
   );
 }
 
-export default TransferAsset;
+export default AddContract;
 

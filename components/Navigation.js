@@ -18,8 +18,11 @@ const { userAddress, setUserAddress } = useContext(WalletContext);
           <NavDropdown title="Assets" id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} href="/AssetPage" passHref>Read Assets</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/TransferAssetPage" passHref>Transfer Asset</NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/ShowAllAssetsPage" passHref>Show All Assets</NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/LoadIpfsPage" passHref>Load Prospectus</NavDropdown.Item>
           </NavDropdown>
 
+          <Nav.Link as={Link} href="/AddContractPage" passHref>Add Contract Page</Nav.Link>
           <NavDropdown title="Change Skin" id="skin-nav-dropdown">
             <NavDropdown.Item onClick={() => changeSkin('skin-blue')}>Blue Screen</NavDropdown.Item>
             <NavDropdown.Item onClick={() => changeSkin('skin-black')}>Black Screen</NavDropdown.Item>

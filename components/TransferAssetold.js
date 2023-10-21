@@ -4,15 +4,11 @@ import { useContractWrite, usePrepareContractWrite } from 'wagmi';
 import { WalletContext } from '../lib/WalletContext';
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
-function TransferAsset({ contractAddress, contractABI, userAddress, walletAddress, numShares }) {
+function TransferAsset({ contractAddress, contractABI }) {
   const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
 
-//  const [walletAddress, setWalletAddress] = useState("");
-  //const [numShares, setNumShares] = useState(0);
-console.log("contractAddress ", contractAddress);
-console.log("userAddress ", userAddress);
-console.log("walletAddress ", walletAddress);
-console.log("numShares ", numShares);
+  const [walletAddress, setWalletAddress] = useState("");
+  const [numShares, setNumShares] = useState(0);
 
   const argArr = [walletAddress, numShares]; 
   const { config, error } = usePrepareContractWrite({
@@ -48,6 +44,19 @@ console.log("numShares ", numShares);
 
   return (
     <>
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Wallet Address"
+          value={walletAddress}
+          onChange={e => setWalletAddress(e.target.value)}
+        />
+        <FormControl
+          placeholder="Number of Shares"
+          type="number"
+          value={numShares}
+          onChange={e => setNumShares(e.target.value)}
+        />
+      </InputGroup>
       <Button variant="primary" onClick={transferName}>
         Confirm Transfer
       </Button>
