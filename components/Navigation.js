@@ -19,12 +19,16 @@ const { userAddress, setUserAddress } = useContext(WalletContext);
             <NavDropdown.Item as={Link} href="/AssetPage" passHref>Read Assets in a Contract</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/TransferAssetPage" passHref>Transfer Asset</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/ShowAllAssetsPage" passHref>Show All Assets for a Contract</NavDropdown.Item>
-            <NavDropdown.Item as={Link} href="/LoadIpfsPage" passHref>Load Investment Prospectus</NavDropdown.Item>
           </NavDropdown>
 
           <NavDropdown title="All Assets" id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} href="/AddContractPage" passHref>Add New Contract</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/ShowAllContractsPage" passHref>Show All Contracts</NavDropdown.Item>
+          </NavDropdown>
+          <NavDropdown title="Prospectuses" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} href="/ShowAllProspectusesPage" passHref>Show All Prospectuses</NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/AddProspectusPage" passHref>Add Prospectus to the Blockchain</NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/LoadIpfsPage" passHref>Load Investment Prospectus</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Change Skin" id="skin-nav-dropdown">
             <NavDropdown.Item onClick={() => changeSkin('skin-blue')}>Blue Screen</NavDropdown.Item>
