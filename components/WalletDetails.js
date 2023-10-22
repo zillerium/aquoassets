@@ -17,14 +17,14 @@ function WalletDetails() {
   if (!isConnected) {
     return null; // Return null to hide the component when not connected
   }
-           // {userAddress} | Goerli | {data?.formatted} {data?.symbol}
-
+           // {userAddress} | Holesky, Goerli | {data?.formatted} {data?.symbol}
+console.log("data =", data);
   return (
     <div style={{ background: '#ffffff', padding: '10px', borderRadius: '5px' }}>
-      <p>
+	  <p>
         {userAddress && (
           <span>
-            {userAddress} | Goerli | {data?.formatted} {data?.symbol}
+            {userAddress} |  {data?.formatted} {data?.symbol}
           </span>
         )}
       </p>

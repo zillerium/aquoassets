@@ -4,24 +4,37 @@ import { Button, Form } from "react-bootstrap";
 import { WalletContext } from "../lib/WalletContext";
 import addContractABI from "../lib/addContractABI.json";
 import addContractAddress from "../lib/addContractAddress.json";
+import WalletControls from "../components/WalletControls";
+import WalletDetails from "../components/WalletDetails";
 
-// function TransferAsset({ addContractAddress, addContractABI, userAddress,ipfsAddress, assetDesc, assetContractAddress  }) {
+import contractData from "../lib/contractAddress.json";
+
+const contractAddress = contractData.address;
+
+// function TransferAsset({ addContractAddress, addContractABI, userAddress,ipfsImageHash, assetDesc, assetContractAddress  }) {
 
 function AddContractPage() {
 
-        const { userAddress,ipfsAddress, assetDesc, assetContractAddress } = useContext(WalletContext);
+        const { userAddress,ipfsImageHash, setIpfsImageHash, assetDesc, setAssetDesc } = useContext(WalletContext);
 
   const handleAddressChange = (e) => {
     setQueryAddress(e.target.value);
   }
 
+	  const handleAssetDescChange = (e) => {
+        setAssetDesc(e.target.value);  // update assetDesc in context when input value changes
+    }
 
+	  const handleImageHashChange = (e) => {
+        setIpfsImageHash(e.target.value);  // update assetDesc in context when input value changes
+    }
     return (
         <div className="container mt-4">
             <h2 className="font-mono mb-4">Add Contract</h2>
-
+                <WalletControls />
+	        <WalletDetails />
             <div>
-                <strong>Contract Address: </strong>
+                <strong>Managing Contract Address: </strong>
                 <span>{addContractAddress.address}</span>
             </div>
             <div>
@@ -30,24 +43,38 @@ function AddContractPage() {
             </div>
             <div>
                 <strong>IPFS Address: </strong>
-                <span>{ipfsAddress}</span>
+                <span>{ipfsImageHash}</span>
             </div>
-            <div>
-                <strong>Asset Description: </strong>
-                <span>{assetDesc}</span>
+	          <div>
+                <Form.Label><strong>Ipfs Address:</strong></Form.Label>
+                <Form.Control
+                    type="text"
+                    value={ipfsImageHash}
+                    onChange={handleImageHashChange}  // set up an onChange handler to update assetDesc
+                    placeholder="Enter ipfs address"
+                />
+            </div>
+	    <div>
+                <Form.Label><strong>Asset Description:</strong></Form.Label>
+                <Form.Control
+                    type="text"
+                    value={assetDesc}
+                    onChange={handleAssetDescChange}  // set up an onChange handler to update assetDesc
+                    placeholder="Enter asset description"
+                />
             </div>
             <div>
                 <strong>Asset Contract Address: </strong>
-                <span>{assetContractAddress}</span>
+                <span>{contractAddress}</span>
             </div>
 
             <AddContract
                 addContractAddress={addContractAddress}
                 addContractABI={addContractABI}
                 userAddress={userAddress}
-                ipfsAddress={ipfsAddress}
+                ipfsImageHash={ipfsImageHash}
                 assetDesc={assetDesc}
-                assetContractAddress={assetContractAddress}
+                assetContractAddress={contractAddress}
             />
         </div>
     );

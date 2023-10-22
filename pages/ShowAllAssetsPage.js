@@ -19,12 +19,6 @@ function ShowAllAssetsPage() {
 
   return (
     <div className="container mt-4">
-      <h2 className="font-mono mb-4">Show All Assets for Wallet Addresses</h2>
-      <Form>
-        <Button variant="primary" type="submit" onClick={(e) => e.preventDefault()}>
-          Submit
-        </Button>
-      </Form>
       <ShowAllAssets
         contractAddress={contractAddress}
         contractABI={contractABI}

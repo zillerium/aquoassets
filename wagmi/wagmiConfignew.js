@@ -5,11 +5,11 @@ import { InjectedConnector } from '@wagmi/core/connectors/injected';
 
 import { createWalletClient, createConfig, configureChains } from 'wagmi';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { goerli } from 'wagmi/chains';
+import { sepolia } from 'wagmi/chains';
 
 //import { chain, configureChains } from 'wagmi'
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [goerli],
+  [sepolia],
   [publicProvider()],
 );
 
@@ -26,12 +26,12 @@ const config = createConfig({
 //)
 /*
 const { chains, publicClient } = configureChains(
-  [mainnet, goerli, polygon],
+  [mainnet, sepolia, polygon],
   [publicProvider()],
 )
 
 //const { chains, publicClient } = configureChains(
-//  [goerli],
+//  [sepolia],
 //  ...
 //)
 

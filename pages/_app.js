@@ -9,7 +9,7 @@ import config from "../wagmi/wagmiConfignew";
 import { WalletContext } from "../lib/WalletContext";
 import WalletControls from "../components/WalletControls";
 
-const contractAddress = "0xCA3dE00C5Ef4332552Cd4679048514530e1e6F48";
+//const contractAddress = "0xCA3dE00C5Ef4332552Cd4679048514530e1e6F48";
 //         const { userAddress,ipfsAddress, assetDesc, assetContractAddress } = useContext(WalletContext);
 
 function MyApp({ Component, pageProps }) {
@@ -25,10 +25,11 @@ function MyApp({ Component, pageProps }) {
   const [ipfsImageHash, setIpfsImageHash] = useState("");
   const [receiverAddress, setReceiverAddress] = useState("");
   const [userAddressName, setUserAddressName] = useState("");
-  const [userDetails, setUserDetails] = useState({
+	    const [userDetails, setUserDetails] = useState({
     username: "",
     // Add more user details fields here
   });
+  const [contractAddress, setContractAddress] = useState("");
   const [newUserName, setNewUserName] = useState("");
   const [shouldRegister, setShouldRegister] = useState(false);
 
@@ -55,7 +56,8 @@ function MyApp({ Component, pageProps }) {
           setIpfsImageHash,
 			ipfsAddress, setIpfsAddress,
 			assetDesc, setAssetDesc,
-			assetContractAddress, setAssetContractAddress
+			assetContractAddress, setAssetContractAddress,
+			contractAddress, setContractAddress
         }}
       >
       <Navigation />

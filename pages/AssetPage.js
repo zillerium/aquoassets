@@ -4,6 +4,8 @@ import { Button, Form } from "react-bootstrap";
 import { WalletContext } from "../lib/WalletContext";
 import contractABI from "../lib/contractABI.json";
 import contractData from "../lib/contractAddress.json";
+import WalletControls from "../components/WalletControls";
+import WalletDetails from "../components/WalletDetails";
 
 const contractAddress = contractData.address;
 
@@ -21,6 +23,8 @@ function AssetPage() {
   return (
     <div className="container mt-4">
       <h2 className="font-mono mb-4">Show Assets for Wallet Addresses</h2>
+	    <WalletControls />
+              <WalletDetails />
       <Form>
         <Form.Group controlId="formWalletAddress">
           <Form.Label>Wallet Address</Form.Label>
@@ -31,9 +35,6 @@ function AssetPage() {
             onChange={handleAddressChange}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={(e) => e.preventDefault()}>
-          Submit
-        </Button>
       </Form>
       <AssetManager
         contractAddress={contractAddress}

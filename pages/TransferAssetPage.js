@@ -4,6 +4,8 @@ import { Button, Form } from "react-bootstrap";
 import { WalletContext } from "../lib/WalletContext";
 import contractABI from "../lib/contractABI.json";
 import contractData from "../lib/contractAddress.json";
+import WalletControls from "../components/WalletControls";
+import WalletDetails from "../components/WalletDetails";
 
 const contractAddress = contractData.address;
 
@@ -22,6 +24,8 @@ function TransferAssetPage() {
   return (
     <div className="container mt-4">
       <h2 className="font-mono mb-4">Transfer Assets</h2>
+	       <WalletControls />
+              <WalletDetails />
       <Form>
         <Form.Group controlId="walletAddress">
           <Form.Label>Wallet Address</Form.Label>

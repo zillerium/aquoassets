@@ -32,7 +32,7 @@ function ShowAllAssets({ contractAddress, contractABI, userAddress }) {
 
   return (
     <div className="container mt-4">
-      <h2 className="font-mono mb-4">All Asset Holders</h2>
+      <h2 className="font-mono mb-4">All Asset Owners</h2>
       <Table striped bordered hover>
         <thead>
           <tr>

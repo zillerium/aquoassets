@@ -6,18 +6,18 @@ import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
 // [200~    function addAsset(string memory ipfsAddress, string memory assetDesc, address contractAddress) public returns (uint256) {
 
-function AddContract({ addContractAddress, addContractABI, userAddress,ipfsAddress, assetDesc, assetContractAddress  }) {
+function AddContract({ addContractAddress, addContractABI, userAddress,ipfsImageHash, assetDesc, assetContractAddress  }) {
   const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
 
 console.log(" add contract address ", addContractAddress);
 console.log(" user address ", userAddress);
-console.log(" ipfs address ", ipfsAddress);
+console.log(" ipfs address ", ipfsImageHash);
 console.log(" asset desc ", assetDesc);
 console.log(" asset contract address ", assetContractAddress);
 
-  const argArr = [ipfsAddress, assetDesc, assetContractAddress]; 
+  const argArr = [ipfsImageHash, assetDesc, assetContractAddress]; 
   const { config, error } = usePrepareContractWrite({
-    address: addContractAddress,
+    address: addContractAddress.address,
     abi: addContractABI,
     functionName: 'addAsset',
     args: argArr,
