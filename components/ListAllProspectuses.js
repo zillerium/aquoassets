@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Image } from "react-bootstrap";
 import { useContractRead } from "wagmi";
 
-function ShowAllProspectuses({ prospectusesContractAddress, prospectusesContractABI }) {
+function ListAllProspectuses({ prospectusesContractAddress, prospectusesContractABI }) {
   const [recordsData, setRecordsData] = useState([]);
 
   const configForAllRecords = {
@@ -31,8 +31,8 @@ function ShowAllProspectuses({ prospectusesContractAddress, prospectusesContract
         <thead>
           <tr>
             <th>#</th>
-            <th>Prospectus CID</th>
-            <th>Image CID</th>
+            <th>Prospectus Link</th>
+            <th>Image</th>
             <th>Proposer Address</th>
           </tr>
         </thead>
@@ -40,8 +40,19 @@ function ShowAllProspectuses({ prospectusesContractAddress, prospectusesContract
           {recordsData.map((record, index) => (
             <tr key={index}>
               <td>{index + 1}</td>
-              <td>{record.prospectusCid}</td>
-              <td>{record.imageCid}</td>
+              <td>
+                <a href={`https://ipfs.io/ipfs/${record.prospectusCid}`} target="_blank" rel="noopener noreferrer">
+                  View Prospectus
+                </a>
+              </td>
+              <td>
+                <Image 
+                  src={`https://ipfs.io/ipfs/${record.imageCid}`} 
+                  alt="Prospectus Image" 
+                  fluid 
+                  rounded 
+                />
+              </td>
               <td>{record.proposer}</td>
             </tr>
           ))}
@@ -51,5 +62,5 @@ function ShowAllProspectuses({ prospectusesContractAddress, prospectusesContract
   );
 }
 
-export default ShowAllProspectuses;
+export default ListAllProspectuses;
 
