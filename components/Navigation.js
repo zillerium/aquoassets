@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import Link from 'next/link';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavLink, NavDropdown } from 'react-bootstrap';
 import { WalletContext } from "../lib/WalletContext";
 
 const Navigation = () => {
@@ -13,6 +13,9 @@ const { userAddress, setUserAddress } = useContext(WalletContext);
     <Navbar className="navbar-custom" expand="lg">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
+	             <NavLink className="navbar-brand" exact to="/">
+	  <img src="/bluelogo.png" alt="Logo" className="logo-img" />
+        </NavLink>
         <Nav className="mr-auto">
           <Nav.Link as={Link} href="/" passHref>Home</Nav.Link>
           <NavDropdown title="Assets" id="basic-nav-dropdown">
@@ -23,6 +26,10 @@ const { userAddress, setUserAddress } = useContext(WalletContext);
 
           <NavDropdown title="All Assets" id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} href="/AddContractPage" passHref>Add New Contract</NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/ShowAllContractsPage" passHref>Show All Contracts</NavDropdown.Item>
+          </NavDropdown>
+          <NavDropdown title="Contracts" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} href="/DeployContractPage" passHref>Deploy ERC20 Contract</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/ShowAllContractsPage" passHref>Show All Contracts</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Prospectuses" id="basic-nav-dropdown">

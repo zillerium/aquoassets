@@ -185,5 +185,28 @@
 		],
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "contractAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "newIpfsAddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "newAssetDesc",
+				"type": "string"
+			}
+		],
+		"name": "updateAsset",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	}
 ]

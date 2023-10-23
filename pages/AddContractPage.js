@@ -7,20 +7,20 @@ import addContractAddress from "../lib/addContractAddress.json";
 import WalletControls from "../components/WalletControls";
 import WalletDetails from "../components/WalletDetails";
 
-import contractData from "../lib/contractAddress.json";
 
-const contractAddress = contractData.address;
 
 // function TransferAsset({ addContractAddress, addContractABI, userAddress,ipfsImageHash, assetDesc, assetContractAddress  }) {
 
 function AddContractPage() {
 
-        const { userAddress,ipfsImageHash, setIpfsImageHash, assetDesc, setAssetDesc } = useContext(WalletContext);
+        const { userAddress,ipfsImageHash, setIpfsImageHash, assetDesc, setAssetDesc, contractAddress, setContractAddress } = useContext(WalletContext);
 
   const handleAddressChange = (e) => {
     setQueryAddress(e.target.value);
   }
-
+ const handleContractAddressChange = (e) => {
+       setContractAddress(e.target.value);
+ }
 	  const handleAssetDescChange = (e) => {
         setAssetDesc(e.target.value);  // update assetDesc in context when input value changes
     }
@@ -63,11 +63,16 @@ function AddContractPage() {
                     placeholder="Enter asset description"
                 />
             </div>
-            <div>
-                <strong>Asset Contract Address: </strong>
-                <span>{contractAddress}</span>
-            </div>
 
+	    <div>
+                <Form.Label><strong>Contract Address:</strong></Form.Label>
+                <Form.Control
+                    type="text"
+                    value={contractAddress}
+                    onChange={handleContractAddressChange}  // set up an onChange handler to update assetDesc
+                    placeholder="Enter contract address"
+                />
+            </div>
             <AddContract
                 addContractAddress={addContractAddress}
                 addContractABI={addContractABI}

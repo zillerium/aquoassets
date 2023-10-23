@@ -387,4 +387,8 @@ body.skin-white .derivatives-container, body.skin-white .paper-list-item {
 /*.list-group-item-action:hover {
   background-color: #f0f0f0;
 } */
+	.logo-img {
+  max-height: 50px; /* Adjust the value as needed */
+  max-width: 100%; /* Ensure the logo doesn't exceed the container width */
+}
 
