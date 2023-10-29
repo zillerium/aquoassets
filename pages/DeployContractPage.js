@@ -15,6 +15,8 @@ const {ipfsImageHash, setIpfsImageHash } =	useContext(WalletContext);
 
   return (
     <div className="container mt-4">
+	     <WalletControls />
+                <WalletDetails />
       <h2 className="font-mono mb-4">Deploy Contract</h2>
 	  <DeployContract />
     </div>

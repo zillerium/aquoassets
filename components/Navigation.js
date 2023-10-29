@@ -30,6 +30,7 @@ const { userAddress, setUserAddress } = useContext(WalletContext);
           </NavDropdown>
           <NavDropdown title="Contracts" id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} href="/DeployContractPage" passHref>Deploy ERC20 Contract</NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/DeployListContractPage" passHref>Deploy and List ERC20 Contract</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/ShowAllContractsPage" passHref>Show All Contracts</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Prospectuses" id="basic-nav-dropdown">
@@ -37,6 +38,9 @@ const { userAddress, setUserAddress } = useContext(WalletContext);
             <NavDropdown.Item as={Link} href="/ListAllProspectusesPage" passHref>List All Prospectuses</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/AddProspectusPage" passHref>Add Prospectus to the Blockchain</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/LoadIpfsPage" passHref>Load Investment Prospectus</NavDropdown.Item>
+          </NavDropdown>
+          <NavDropdown title="All Int Assets" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} href="/AddIntAssetPage" passHref>Add Int Assets</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Change Skin" id="skin-nav-dropdown">
             <NavDropdown.Item onClick={() => changeSkin('skin-blue')}>Blue Screen</NavDropdown.Item>

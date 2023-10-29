@@ -29,6 +29,7 @@ function MyApp({ Component, pageProps }) {
     username: "",
     // Add more user details fields here
   });
+  const [ipfsProspectusCid, setIpfsProspectusCid] = useState("");
   const [contractAddress, setContractAddress] = useState("");
   const [newUserName, setNewUserName] = useState("");
   const [shouldRegister, setShouldRegister] = useState(false);
@@ -57,7 +58,8 @@ function MyApp({ Component, pageProps }) {
 			ipfsAddress, setIpfsAddress,
 			assetDesc, setAssetDesc,
 			assetContractAddress, setAssetContractAddress,
-			contractAddress, setContractAddress
+			contractAddress, setContractAddress,
+		ipfsProspectusCid, setIpfsProspectusCid
         }}
       >
       <Navigation />
