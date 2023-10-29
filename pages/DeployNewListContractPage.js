@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import DeployListContract from "../components/DeployListContract";
+import DeployNewListContract from "../components/DeployNewListContract";
 import { Button, Form } from "react-bootstrap";
 import { WalletContext } from "../lib/WalletContext";
 import WalletControls from "../components/WalletControls";
