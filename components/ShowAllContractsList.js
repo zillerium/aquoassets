@@ -9,7 +9,7 @@ function ShowAllContractsList({ listContractAddress, listContractABI, onSelectCo
   const [assetsData, setAssetsData] = useState([]);
 
   const config = {
-    listress: listContractAddress,
+    address: listContractAddress,
     abi: listContractABI,
     functionName: "getAllContracts",
     args: [],
@@ -18,6 +18,7 @@ function ShowAllContractsList({ listContractAddress, listContractABI, onSelectCo
   const { data, isLoading } = useContractRead(config);
 
   useEffect(() => {
+	  console.log("data === ", data);
     if (data) {
       setAssetsData(data);
     }
