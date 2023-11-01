@@ -23,6 +23,8 @@ function MyApp({ Component, pageProps }) {
   const [assetDesc, setAssetDesc  ] = useState("");
   const [assetContractAddress, setAssetContractAddress  ] = useState("");
   const [ipfsImageHash, setIpfsImageHash] = useState("");
+  const [ipfsImageCid, setIpfsImageCid] = useState("");
+  const [ipfsPdfCid, setIpfsPdfCid] = useState("");
   const [receiverAddress, setReceiverAddress] = useState("");
   const [userAddressName, setUserAddressName] = useState("");
 	    const [userDetails, setUserDetails] = useState({
@@ -59,7 +61,8 @@ function MyApp({ Component, pageProps }) {
 			assetDesc, setAssetDesc,
 			assetContractAddress, setAssetContractAddress,
 			contractAddress, setContractAddress,
-		ipfsProspectusCid, setIpfsProspectusCid
+		ipfsProspectusCid, setIpfsProspectusCid,
+			ipfsImageCid, setIpfsImageCid,ipfsPdfCid, setIpfsPdfCid
         }}
       >
       <Navigation />

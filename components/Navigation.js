@@ -27,8 +27,7 @@ const { userAddress, setUserAddress } = useContext(WalletContext);
           <NavDropdown title="Prospectus Management" id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} href="/ShowAllProspectusesPage" passHref>Show All Prospectuses</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/ListAllProspectusesPage" passHref>List All Prospectuses</NavDropdown.Item>
-            <NavDropdown.Item as={Link} href="/AddProspectusPage" passHref>Add Prospectus to the Blockchain</NavDropdown.Item>
-            <NavDropdown.Item as={Link} href="/LoadIpfsPage" passHref>Load Investment Prospectus</NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/UploadAndAddPage" passHref>Upload and Add Prospectus</NavDropdown.Item>
           </NavDropdown>
 
           <NavDropdown title="Change Skin" id="skin-nav-dropdown">
