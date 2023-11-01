@@ -2,13 +2,8 @@
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "_ipfsAddress",
-				"type": "string"
-			},
-			{
 				"internalType": "uint256",
-				"name": "initialShares",
+				"name": "_initialShares",
 				"type": "uint256"
 			},
 			{
@@ -24,7 +19,7 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "user",
+				"name": "_user",
 				"type": "address"
 			}
 		],
@@ -34,19 +29,6 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "ipfsAddress",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -82,12 +64,12 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "to",
+				"name": "_to",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "amount",
+				"name": "_amount",
 				"type": "uint256"
 			}
 		],

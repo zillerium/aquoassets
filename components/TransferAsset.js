@@ -18,7 +18,7 @@ console.log("numShares ", numShares);
   const { config, error } = usePrepareContractWrite({
     address: contractAddress,
     abi: contractABI,
-    functionName: 'transfer',
+    functionName: 'transferShares',
     args: argArr,
   });
 

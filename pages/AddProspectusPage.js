@@ -23,7 +23,7 @@ function AddProspectusPage() {
 
     return (
         <div className="container mt-4">
-            <h2 className="font-mono mb-4">Add Contract</h2>
+            <h2 className="font-mono mb-4">Add Prospectus</h2>
             <WalletControls />
             <WalletDetails />
             <div>

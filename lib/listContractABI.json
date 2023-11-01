@@ -11,6 +11,11 @@
 						"type": "uint256"
 					},
 					{
+						"internalType": "string",
+						"name": "ipfsAddress",
+						"type": "string"
+					},
+					{
 						"internalType": "address",
 						"name": "contractAddress",
 						"type": "address"
@@ -40,6 +45,11 @@
 						"internalType": "uint256",
 						"name": "contractId",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "ipfsAddress",
+						"type": "string"
 					},
 					{
 						"internalType": "address",
@@ -73,6 +83,11 @@
 						"type": "uint256"
 					},
 					{
+						"internalType": "string",
+						"name": "ipfsAddress",
+						"type": "string"
+					},
+					{
 						"internalType": "address",
 						"name": "contractAddress",
 						"type": "address"
@@ -92,6 +107,11 @@
 				"internalType": "address",
 				"name": "_contractAddress",
 				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_ipfsAddress",
+				"type": "string"
 			}
 		],
 		"name": "listContract",

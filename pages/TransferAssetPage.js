@@ -1,20 +1,21 @@
 import React, { useState, useContext } from "react";
 import TransferAsset from "../components/TransferAsset";
+import ShowAllContractsList from "../components/ShowAllContractsList";
 import { Button, Form } from "react-bootstrap";
 import { WalletContext } from "../lib/WalletContext";
 import contractABI from "../lib/contractABI.json";
-import contractData from "../lib/contractAddress.json";
+import listContractAddress from "../lib/listContractAddress.json";
 import WalletControls from "../components/WalletControls";
 import WalletDetails from "../components/WalletDetails";
-
-const contractAddress = contractData.address;
+import listContractABI from "../lib/listContractABI.json";
 
 function TransferAssetPage() {
   const { userAddress, setUserAddress } = useContext(WalletContext);  
-  const [walletAddress, setWalletAddress] = useState("");  // Create state for wallet address
-  const [numShares, setNumShares] = useState(0);  // Create state for number of shares
-  
-  console.log("Contract Address:", contractAddress);
+  const [walletAddress, setWalletAddress] = useState("");  
+  const [numShares, setNumShares] = useState(0);  
+  const [selectedContractAddress, setSelectedContractAddress] = useState("");
+
+  console.log("Selected Contract Address:", selectedContractAddress);
   console.log("User Address:", userAddress);
 
   const handleTransfer = () => {
@@ -24,9 +25,20 @@ function TransferAssetPage() {
   return (
     <div className="container mt-4">
       <h2 className="font-mono mb-4">Transfer Assets</h2>
-	       <WalletControls />
-              <WalletDetails />
+      <WalletControls />
+      <WalletDetails />
       <Form>
+        <ShowAllContractsList
+            listContractAddress={listContractAddress.address}
+            listContractABI={listContractABI}
+            onSelectContract={setSelectedContractAddress}
+        />
+      {selectedContractAddress && (
+          <p className="mt-3 mb-1">
+            Selected Contract Address: <strong>{selectedContractAddress}</strong>
+          </p>
+        )}
+
         <Form.Group controlId="walletAddress">
           <Form.Label>Wallet Address</Form.Label>
           <Form.Control
@@ -47,7 +59,7 @@ function TransferAssetPage() {
         </Form.Group>
       </Form>
       <TransferAsset
-        contractAddress={contractAddress}
+        contractAddress={selectedContractAddress}
         contractABI={contractABI}
         userAddress={userAddress}
         walletAddress={walletAddress}

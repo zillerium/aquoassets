@@ -40,12 +40,12 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "ipfsAddress",
+				"name": "_ipfsAddress",
 				"type": "string"
 			},
 			{
 				"internalType": "uint256",
-				"name": "initialShares",
+				"name": "_initialShares",
 				"type": "uint256"
 			}
 		],
