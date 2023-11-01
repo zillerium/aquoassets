@@ -3,13 +3,21 @@ import { useContractWrite, usePrepareContractWrite } from 'wagmi';
 import { WalletContext } from '../lib/WalletContext';
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
-function DeployListContract({ addDeployListAddress, addDeployListABI,  initialSupply }) {
-console.log(addDeployListAddress);
-    const argArr = [initialSupply];  // Updated to include prospectusCid
+//function DeployListContract({ addDeployListAddress, addDeployListABI,  initialSupply }) {
+function DeployListContract({
+deployContractAddress,
+	deployContractABI,
+	listContractAddress,
+	initialSupply,
+	ipfsProspectusCid
+}) {
+const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
+console.log(deployContractAddress);
+    const argArr = [ipfsProspectusCid, initialSupply];  // Updated to include prospectusCid
     const { config, error } = usePrepareContractWrite({
-        address: addDeployListAddress,
-        abi: addDeployListABI,
-        functionName: 'deployAndRegisterERC20',
+        address: deployContractAddress,
+        abi: deployContractABI,
+        functionName: 'deployAndRegisterContract',
         args: argArr,
     });
 console.log(config)

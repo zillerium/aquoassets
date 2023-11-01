@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
-import AddIntAsset from "../components/AddIntAsset";
+import DeployListContract from "../components/DeployListContract";
 import { Button, Form } from "react-bootstrap";
 import { WalletContext } from "../lib/WalletContext";
 import WalletControls from "../components/WalletControls";
 import WalletDetails from "../components/WalletDetails";
-import intContractAddress from "../lib/intContractAddress.json";
-import intContractABI from "../lib/intContractABI.json";
+import deployContractAddress from "../lib/deployContractAddress.json";
+import listContractAddress from "../lib/listContractAddress.json";
+import deployContractABI from "../lib/deployContractABI.json";
 
 function AddIntAssetPage() {
 
@@ -42,9 +43,10 @@ const {ipfsProspectusCid, setIpfsProspectusCid } =	useContext(WalletContext);
                     placeholder="Ipfs Prospectus Address"
                 />
             </div>
-          <AddIntAsset
-              intContractAddress={intContractAddress.address}
-              intContractABI={intContractABI}
+          <DeployListContract
+              deployContractAddress={deployContractAddress.address}
+              deployContractABI={deployContractABI}
+              listContractAddress={listContractAddress.address}
               initialSupply={initialSupply}  
               ipfsProspectusCid={ipfsProspectusCid}  
 
@@ -55,4 +57,4 @@ const {ipfsProspectusCid, setIpfsProspectusCid } =	useContext(WalletContext);
 }
 
 export default AddIntAssetPage;
-
+DeployListContract

@@ -2,15 +2,14 @@ import React, { useEffect, useState, useContext } from "react";
 import { Table } from "react-bootstrap";
 import { useContractRead } from "wagmi";
 import { WalletContext } from "../lib/WalletContext";
-
-function ShowAllContracts({ addContractAddress, addContractABI }) {
+function ShowAllContracts({listContractAddress, listContractABI }) {
 
   const [assetsData, setAssetsData] = useState([]);
 
   const config = {
-    address: addContractAddress,
-    abi: addContractABI,
-    functionName: "getAllAssets",
+    address: listContractAddress,
+    abi: listContractABI,
+    functionName: "getAllContracts",
     args: [],
   };
 
@@ -20,6 +19,7 @@ function ShowAllContracts({ addContractAddress, addContractABI }) {
     if (data) {
       // Assuming data is an array of Asset structs
       setAssetsData(data);
+	    console.log(data);
     }
   }, [data]);
 
@@ -35,22 +35,20 @@ function ShowAllContracts({ addContractAddress, addContractABI }) {
           <tr>
             <th>#</th>
             <th>Asset ID</th>
-            <th>IPFS Address</th>
-            <th>Description</th>
             <th>Contract Address</th>
           </tr>
         </thead>
-        <tbody>
-          {assetsData.map((asset, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{asset.assetId}</td>
-              <td>{asset.ipfsAddress}</td>
-              <td>{asset.assetDesc}</td>
-              <td>{asset.contractAddress}</td>
-            </tr>
-          ))}
-        </tbody>
+	  <tbody>
+  {assetsData.map((asset, index) => (
+    <tr key={index}>
+      <td>{index + 1}</td>
+      <td>{asset.contractId.toString()}</td> {/* Convert BigInt to string */}
+      <td>{asset.contractAddress}</td>
+    </tr>
+  ))}
+</tbody>
+
+
       </Table>
     </div>
   );

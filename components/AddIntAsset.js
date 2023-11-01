@@ -6,8 +6,8 @@ import { Button, InputGroup, FormControl } from 'react-bootstrap';
 function AddIntAsset({intContractAddress, intContractABI, initialSupply, ipfsProspectusCid }) {
 
   const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
-
-	const argArr = [ipfsProspectusCid, initialSupply];  // Updated to include prospectusCid
+ const assetDesc = "test";
+	const argArr = [ipfsProspectusCid, assetDesc, initialSupply];  // Updated to include prospectusCid
     const { config, error } = usePrepareContractWrite({
         address: intContractAddress,
         abi: intContractABI,

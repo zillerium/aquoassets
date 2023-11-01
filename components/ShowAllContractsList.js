@@ -5,13 +5,13 @@ import { useContractRead } from "wagmi";
 import { WalletContext } from "../lib/WalletContext";
 import { ListGroup } from "react-bootstrap";
 
-function ShowAllContractsList({ addContractAddress, addContractABI, onSelectContract }) {
+function ShowAllContractsList({ listContractAddress, listContractABI, onSelectContract }) {
   const [assetsData, setAssetsData] = useState([]);
 
   const config = {
-    address: addContractAddress,
-    abi: addContractABI,
-    functionName: "getAllAssets",
+    listress: listContractAddress,
+    abi: listContractABI,
+    functionName: "getAllContracts",
     args: [],
   };
 

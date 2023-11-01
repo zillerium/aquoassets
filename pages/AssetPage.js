@@ -4,8 +4,8 @@ import ShowAllContractsList from "../components/ShowAllContractsList";
 import { Button, Form, Card, Row, Col, Container } from "react-bootstrap";
 import { WalletContext } from "../lib/WalletContext";
 import contractABI from "../lib/contractABI.json";
-import addContractABI from "../lib/addContractABI.json";
-import addContractAddress from "../lib/addContractAddress.json";
+import listContractABI from "../lib/listContractABI.json";
+import listContractAddress from "../lib/listContractAddress.json";
 import WalletControls from "../components/WalletControls";
 import WalletDetails from "../components/WalletDetails";
 
@@ -35,8 +35,8 @@ function AssetPage() {
             <Card.Body>
                 <h3>Available Contracts:</h3>
                 <ShowAllContractsList
-                    addContractAddress={addContractAddress.address}
-                    addContractABI={addContractABI}
+                    listContractAddress={listContractAddress.address}
+                    listContractABI={listContractABI}
                     onSelectContract={setSelectedContract} // pass down the setter as a callback
                 />
                 <hr />
