@@ -5,6 +5,11 @@
 				"internalType": "address",
 				"name": "_contractList",
 				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_prospectusRegistry",
+				"type": "address"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -40,7 +45,12 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "_ipfsAddress",
+				"name": "_pdfAddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_imageAddress",
 				"type": "string"
 			},
 			{
@@ -58,6 +68,19 @@
 			}
 		],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "prospectusRegistry",
+		"outputs": [
+			{
+				"internalType": "contract ProspectusRegistry",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	}
 ]

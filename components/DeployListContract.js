@@ -9,11 +9,12 @@ deployContractAddress,
 	deployContractABI,
 	listContractAddress,
 	initialSupply,
-	ipfsProspectusCid
+	ipfsProspectusCid,
+	ipfsImageCid
 }) {
 const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
 console.log(deployContractAddress);
-    const argArr = [ipfsProspectusCid, initialSupply];  // Updated to include prospectusCid
+    const argArr = [ipfsProspectusCid, ipfsImageCid, initialSupply];  // Updated to include prospectusCid
     const { config, error } = usePrepareContractWrite({
         address: deployContractAddress,
         abi: deployContractABI,

@@ -10,17 +10,26 @@ import addProspectusesABI from "../lib/prospectusesContractABI.json";
 import addProspectusesAddressData from "../lib/prospectusesContractAddress.json";
 import AddProspectus from "../components/AddProspectus";
 
+import DeployListContract from "../components/DeployListContract";
+import deployContractAddress from "../lib/deployContractAddress.json";
+import listContractAddress from "../lib/listContractAddress.json";
+import deployContractABI from "../lib/deployContractABI.json";
+
+
 const addProspectusesAddress = addProspectusesAddressData.address;
 
 
 function UploadAndAddPage() {
+const [initialSupply, setInitialSupply] = useState("");
 
 
 const {userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid, ipfsPdfCid, setIpfsPdfCid } =	useContext(WalletContext);
   const handleAddressChange = (e) => {
     setQueryAddress(e.target.value);
   }
-
+ const handleInitialSupplyChange = (e) => {
+    setInitialSupply(e.target.value);
+  }
   return (
     <div className="container mt-4">
       <h2 className="font-mono mb-4">Load Prospectus and Image</h2>
@@ -57,6 +66,26 @@ const {userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageC
                 prospectusCid={ipfsPdfCid}
                 ipfsImageHash={ipfsImageCid}
             />
+	  <div>
+
+
+                <Form.Label><strong>Initial Supply</strong></Form.Label>
+                <Form.Control
+                    type="text"
+                    value={initialSupply}
+                    onChange={handleInitialSupplyChange}
+                    placeholder="Initial Supply"
+                />
+            </div>
+          <DeployListContract
+              deployContractAddress={deployContractAddress.address}
+              deployContractABI={deployContractABI}
+              listContractAddress={listContractAddress.address}
+              initialSupply={initialSupply}
+              ipfsProspectusCid={ipfsPdfCid}
+              ipfsImageCid={ipfsImageCid}
+          />
+
     </div>
   );
 }
