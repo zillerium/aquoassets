@@ -13,15 +13,15 @@ body.skin-white {
   color: #000000;
 }
 
-.navbar-custom.skin-blue {
+.nnavbar-custom.skin-blue {
   background-color: #3333ff;
 }
 
-.navbar-custom.skin-black {
+.nnavbar-custom.skin-black {
   background-color: #333333;
 }
 
-.navbar-custom.skin-white {
+.nnavbar-custom.skin-white {
   background-color: #000000;
 }
 
@@ -391,4 +391,71 @@ body.skin-white .derivatives-container, body.skin-white .paper-list-item {
   max-height: 50px; /* Adjust the value as needed */
   max-width: 100%; /* Ensure the logo doesn't exceed the container width */
 }
+
+
+
+
+.navbar-custom {
+    background-color: #f8f8f8; /* Light gray */
+    border-bottom: 1px solid #e0e0e0; /* Border bottom */
+}
+
+.navbar-custom .nav-link {
+    color: #333; /* Dark gray text */
+    font-weight: 500; /* Medium weight for a bit of boldness */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.navbar-custom .nav-link:hover {
+    color: #555; /* Slightly darker gray for hover */
+}
+
+.navbar-custom .navbar-brand {
+    color: #333; /* Dark gray text for brand/logo */
+}
+
+.navbar-custom .dropdown-menu {
+    border-radius: 0; /* Remove rounded corners */
+}
+
+.navbar-custom .dropdown-item {
+    color: #333; /* Dark gray text for dropdown items */
+}
+
+.navbar-custom .dropdown-item:hover {
+    background-color: #f0f0f0; /* Light gray background for hovered dropdown items */
+}
+
+.navbar-custom .mr-auto {
+    margin-left: auto !important;
+}
+
+.navbar-custom {
+    padding-left: 50px;  /* Adjust as needed */
+    padding-right: 50px;  /* Adjust as needed */
+}
+
+
+/* styles.css */
+
+.container-custom {
+    background-color: #004d99;
+    padding: 5% 0;
+}
+
+.container-custom h1,
+.container-custom p {
+    color: #ffffff;
+}
+
+.btn-custom {
+    background-color: #ffffff;
+    color: #004d99;
+}
+
+.btn-custom:hover {
+    background-color: #e6e6e6;
+    color: #004d99;
+}
+
 

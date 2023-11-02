@@ -59,13 +59,6 @@ const {userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageC
                 <span>{userAddress}</span>
             </div>
 
-            <AddProspectus
-                addProspectusesAddress={addProspectusesAddress}
-                addProspectusesABI={addProspectusesABI}
-                userAddress={userAddress}
-                prospectusCid={ipfsPdfCid}
-                ipfsImageHash={ipfsImageCid}
-            />
 	  <div>
 
 
@@ -77,14 +70,18 @@ const {userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageC
                     placeholder="Initial Supply"
                 />
             </div>
-          <DeployListContract
-              deployContractAddress={deployContractAddress.address}
-              deployContractABI={deployContractABI}
-              listContractAddress={listContractAddress.address}
-              initialSupply={initialSupply}
-              ipfsProspectusCid={ipfsPdfCid}
-              ipfsImageCid={ipfsImageCid}
-          />
+
+	  {initialSupply > 0 ? (
+  <DeployListContract
+    deployContractAddress={deployContractAddress.address}
+    deployContractABI={deployContractABI}
+    listContractAddress={listContractAddress.address}
+    initialSupply={initialSupply}
+    ipfsProspectusCid={ipfsPdfCid}
+    ipfsImageCid={ipfsImageCid}
+  />
+) : null}
+
 
     </div>
   );

@@ -27,86 +27,30 @@ function Home() {
   };
 
 
- return (
-        <Container className="bg-white text-dark">
-            <Card bg="light" text="dark">
-                <Card.Header>
-                    <Row>
-                        <Col sm={8}>
-                            <h1>Investment Management and Liquidity</h1>
-                        </Col>
-                        <Col sm={4} className="text-left">
-                            <WalletControls />
-                        </Col>
-                    </Row>
-                    <WalletDetails />
-                </Card.Header>
-                <Card.Body>
-                    <hr />
-<Row className="mb-3 justify-content-md-center">
-    <Col xs="auto">
-        <Image 
-            src="https://ipfs.io/ipfs/QmdTTVmLNh7efCkLwiCc3Zv2h1mQzC7efEAszFmeA5nsSw" 
-            width={500} 
-            alt="investment opportunities" 
-            fluid 
-        />
-    </Col>
-</Row>
+    return (
+    <div className="container container-custom">
+            <div className="row align-items-center">
 
-<Row className="mb-3">
-    <Col>
-        <p>Fractional ownership, liquidity, financial instruments and more. At this site you can do the following:</p>
+                <div className="col-lg-6">
+                    <h1 className="display-5 mb-2">Making Asset Illiquidity History</h1>
+                    <p className="lead mb-3">Tokenized Real World Assets, with Derivatives</p>
+                    <button className="btn btn-primary mr-2">Get Started</button>
+                    <button className="btn btn-outline-primary">Watch Video</button>
+                </div>
 
-    </Col>
-</Row>
-<Row>
-<Col>
-<Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
-      <Row>
-        <Col sm={4}>
-          <ListGroup>
-            <ListGroup.Item action href="#link1">
-             Launch an investment opportunity (prospectus) 
-            </ListGroup.Item>
-            <ListGroup.Item action href="#link2">
-             Buy, sell fractional ownership of real-world assets
-            </ListGroup.Item>
-            <ListGroup.Item action href="#link3">
-             Create derivatives (financial instruments)
-            </ListGroup.Item>
-          </ListGroup>
-        </Col>
-        <Col sm={8}>
-          <Tab.Content>
-            <Tab.Pane eventKey="#link1">Real world assets eg real estate, commodities, factories and more</Tab.Pane>
-            <Tab.Pane eventKey="#link2">Transfer assets</Tab.Pane>
-            <Tab.Pane eventKey="#link3">Create options and other derivatives</Tab.Pane>
-          </Tab.Content>
-        </Col>
-      </Row>
-    </Tab.Container>
-
-	 </Col>
-
-	 </Row>
-
-                </Card.Body>
-            </Card>
-	 <Card>
-      <Card.Header>What you can do at Aquo</Card.Header>
-      <Card.Body>
-        <Card.Title>Investment Opportunities</Card.Title>
-        <Card.Text>
-	 Real estate opportunities currently listed.
-        </Card.Text>
-        <Button href="./ListAllProspectusesPage"  variant="primary">Opportunities</Button>
-      </Card.Body>
-    </Card>
-        </Container>
+                <div className="col-lg-6 mt-4 mt-lg-0">
+                    <img src="https://ipfs.io/ipfs/QmdTTVmLNh7efCkLwiCc3Zv2h1mQzC7efEAszFmeA5nsSw" alt="Descriptive alt text" className="img-fluid" style={{ maxWidth: '600px' }} />
+                </div>
+                
+            </div>
+        </div>
     );
-
 }
+
+
+
+
+
 
 export default Home;
 
