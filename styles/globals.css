@@ -1,3 +1,8 @@
+/* styles/globals.css */
+body {
+  font-family: sans-serif;
+}
+
 body.skin-blue {
   background-color: #0000ff;
   color: #ffffff;
@@ -439,7 +444,7 @@ body.skin-white .derivatives-container, body.skin-white .paper-list-item {
 /* styles.css */
 
 .container-custom {
-    background-color: #004d99;
+    background-color: #37517e;
     padding: 5% 0;
 }
 
@@ -456,6 +461,16 @@ body.skin-white .derivatives-container, body.skin-white .paper-list-item {
 .btn-custom:hover {
     background-color: #e6e6e6;
     color: #004d99;
+}
+
+.container-custom {
+    margin: 20px 0; /* Adjust the top and bottom margin according to your needs */
+}
+
+.contentArea {
+	    /*background-color: #37517e; */
+	    background-color: #0D1C3B; 
+    padding: 3rem 0;
 }
 
 

@@ -29,18 +29,21 @@ function Home() {
 
 return (
  <div className="contentArea">
+    <Head>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    </Head>
 
-    <div > {/* Setting the background color to blue */}
+    <div className="bg-primary"> {/* Setting the background color to blue */}
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-6 col-12"> {/* Adjusting for mobile */}
-                    <h1 className="display-5 mb-2 text-white">Make Your Assets Liquid</h1>
+                    <h1 className="display-5 mb-2 text-white">Making Asset Illiquidity History</h1>
                     <p className="lead mb-3 text-white">Tokenized Real World Assets, with Derivatives</p>
                     <button className="btn btn-light mr-2">Get Started</button>
                     <button className="btn btn-outline-light">Watch Video</button>
                 </div>
                 <div className="col-lg-6 col-12 mt-4 mt-lg-0"> {/* Adjusting for mobile */}
-                    <img src="https://ipfs.io/ipfs/QmZFpRw61fRmKh6JwNnAyrDi9mSMPh6DZEJmLhDMrWRgv7" alt="Financial Liquidity" className="img-fluid" />
+                    <img src="https://ipfs.io/ipfs/QmdTTVmLNh7efCkLwiCc3Zv2h1mQzC7efEAszFmeA5nsSw" alt="Descriptive alt text" className="img-fluid" />
                 </div>
             </div>
         </div>
