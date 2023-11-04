@@ -37,6 +37,7 @@ function MyApp({ Component, pageProps }) {
   const [shouldRegister, setShouldRegister] = useState(false);
   const [imageClientName, setImageClientName] = useState("");
   const [pdfClientName, setPdfClientName] = useState("");
+  const [signed, setSigned] = useState("");
 
 	return (
     <div>
@@ -65,7 +66,8 @@ function MyApp({ Component, pageProps }) {
 			assetContractAddress, setAssetContractAddress,
 			contractAddress, setContractAddress,
 		ipfsProspectusCid, setIpfsProspectusCid,
-			ipfsImageCid, setIpfsImageCid,ipfsPdfCid, setIpfsPdfCid
+			ipfsImageCid, setIpfsImageCid,ipfsPdfCid, setIpfsPdfCid,
+		        setSigned, signed
         }}
       >
       <Navigation />

@@ -4,6 +4,7 @@ import LoadImageIpfsCid from "../components/LoadImageIpfsCid";
 import LoadPdfIpfsCid from "../components/LoadPdfIpfsCid";
 import {Container, Row, Col, Button, Form } from "react-bootstrap";
 import { WalletContext } from "../lib/WalletContext";
+import WalletSign from "../components/WalletSign";
 import WalletControls from "../components/WalletControls";
 import WalletDetails from "../components/WalletDetails";
 import addProspectusesABI from "../lib/prospectusesContractABI.json";
@@ -23,7 +24,7 @@ function UploadAndAddPage() {
 const [initialSupply, setInitialSupply] = useState("");
 
 
-const {imageClientName, setImageClientName, pdfClientName, setPdfClientName, userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid, ipfsPdfCid, setIpfsPdfCid } =	useContext(WalletContext);
+const {signed, setSigned, imageClientName, setImageClientName, pdfClientName, setPdfClientName, userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid, ipfsPdfCid, setIpfsPdfCid } =	useContext(WalletContext);
   const handleAddressChange = (e) => {
     setQueryAddress(e.target.value);
   }
@@ -34,7 +35,7 @@ const {imageClientName, setImageClientName, pdfClientName, setPdfClientName, use
 	  <div>
 <Container>
 	  <Row>
-	  <WalletControls />
+	  <WalletSign />
 	  </Row>
 	  <Row>
 <WalletDetails />
@@ -70,7 +71,7 @@ const {imageClientName, setImageClientName, pdfClientName, setPdfClientName, use
 	  </div>
 
 	  </Col>
-      <LoadImageIpfsCid />
+      <LoadImageIpfsCid enabledButton={signed} />
 
 	  </Row>
 	 <Row className="my-3">
@@ -89,7 +90,7 @@ const {imageClientName, setImageClientName, pdfClientName, setPdfClientName, use
       )}
 </div>
          </Col>
-	  <LoadPdfIpfsCid />
+	  <LoadPdfIpfsCid enabledButton={signed} />
 
 	  </Row>
  <Row className="my-3">
@@ -114,6 +115,7 @@ const {imageClientName, setImageClientName, pdfClientName, setPdfClientName, use
     initialSupply={initialSupply}
     ipfsProspectusCid={ipfsPdfCid}
     ipfsImageCid={ipfsImageCid}
+    enabledButton={signed}
   />
 </Col>
 	  </Row>

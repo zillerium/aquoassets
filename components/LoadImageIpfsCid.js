@@ -3,7 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { create } from 'ipfs-http-client';
 import { WalletContext } from '../lib/WalletContext';
 
-function LoadImageIpfsCid() {
+function LoadImageIpfsCid({enabledButton}) {
   const [productImage, setProductImage] = useState(null);
   const { imageClientName, setImageClientName, pdfClientName, setPdfClientName,ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid,ipfsPdfCid, setIpfsPdfCid } = useContext(WalletContext);
 
@@ -42,31 +42,41 @@ console.log("ipfs -- ", process.env.NEXT_PUBLIC_REACT_APP_INFURA_PROJECT_ID);
     setIpfsImageCid(cid.toString());
   };
 
-  return (
+console.log("btton - ", enabledButton );
+return (
     <Col>
-	  <Row>
-      <Col>
+      <Row>
+        <Col>
+           <label
+	       htmlFor="image-btn"
+            className={`btn ${enabledButton ? 'btn-primary' : 'btn-secondary'}`}
+             >
 
-<label htmlFor="image-btn" className="btn btn-primary">
-Upload Image 
-<input
-    type="file"
-    name="imageFile"
-    id="image-btn"
-    onChange={onChangeImage}
-    accept="image/png, image/jpeg, image/jpg"
-    style={{ display: 'none' }}
-  />
-</label>
-	  </Col>
-	  <Col >
-	  <Button variant="primary" onClick={loadIpfsImage}>
-          Save Image 
-        </Button>
-         </Col>
-	  </Row>
+            Upload Image 
+            <input
+              type="file"
+              name="imageFile"
+              id="image-btn"
+              onChange={onChangeImage}
+              accept="image/png, image/jpeg, image/jpg"
+              style={{ display: 'none' }}
+              disabled={!enabledButton} // Disable input when button not enabled
+            />
+          </label>
+        </Col>
+        <Col>
+          <Button 
+            variant="primary" 
+            onClick={loadIpfsImage}
+            disabled={!enabledButton} // Disable button when button not enabled
+          >
+            Save Image 
+          </Button>
+        </Col>
+      </Row>
     </Col>
   );
 }
 
 export default LoadImageIpfsCid;
+

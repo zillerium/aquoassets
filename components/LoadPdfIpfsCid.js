@@ -3,7 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { create } from 'ipfs-http-client';
 import { WalletContext } from '../lib/WalletContext';
 
-function LoadPdfIpfsCid() {
+function LoadPdfIpfsCid({enabledButton}) {
   const [productImage, setProductImage] = useState(null);
   const { ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid,ipfsPdfCid, setIpfsPdfCid } = useContext(WalletContext);
 
@@ -43,7 +43,11 @@ console.log("ipfs -- ", process.env.NEXT_PUBLIC_REACT_APP_INFURA_PROJECT_ID);
 	  <Col>
   <Row>
     <Col>
-      <label htmlFor="pdf-btn" className="btn btn-primary">
+      <label htmlFor="pdf-btn" 
+	  className="btn btn-primary"
+            className={`btn ${enabledButton ? 'btn-primary' : 'btn-secondary'}`}
+
+	  >
         Upload PDF
         <input
           type="file"
@@ -52,11 +56,15 @@ console.log("ipfs -- ", process.env.NEXT_PUBLIC_REACT_APP_INFURA_PROJECT_ID);
           onChange={onChangeImage} // Assuming you have a separate handler for PDF
           accept="application/pdf"
           style={{ display: 'none' }} // To hide the input but show the label
-        />
+              disabled={!enabledButton} // Disable input when button not enabled
+	  />
       </label>
     </Col>
     <Col>
-      <Button variant="primary" onClick={loadIpfsImage}> {/* Assuming a separate function for PDF */}
+      <Button variant="primary" 
+	  onClick={loadIpfsImage}
+              disabled={!enabledButton} // Disable input when button not enabled
+	  > {/* Assuming a separate function for PDF */}
         Save PDF
       </Button>
     </Col>

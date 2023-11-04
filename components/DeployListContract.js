@@ -9,7 +9,8 @@ function DeployListContract({
   listContractAddress,
   initialSupply,
   ipfsProspectusCid,
-  ipfsImageCid
+  ipfsImageCid,
+	enabledButton
 }) {
   const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
 
@@ -50,7 +51,7 @@ function DeployListContract({
       <Button
         variant="primary"
         onClick={transferName}
-        disabled={!isInitialSupplyPositive || isLoading} // Disable the button when initialSupply is not positive or if loading
+        disabled={!ipfsImageCid || !ipfsProspectusCid || !enabledButton || !isInitialSupplyPositive || isLoading} // Disable the button when initialSupply is not positive or if loading
       >
         Deploy
       </Button>
