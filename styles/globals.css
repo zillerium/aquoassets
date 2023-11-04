@@ -473,4 +473,9 @@ body.skin-white .derivatives-container, body.skin-white .paper-list-item {
     padding: 3rem 0;
 }
 
+/* Add this to your CSS file or style tag */
+.custom-thumbnail {
+  max-width: 200px !important; /* Adjust the size as needed */
+  height: auto !important;
+}
 

@@ -1,18 +1,21 @@
 import React, { useContext, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import { create } from 'ipfs-http-client';
 import { WalletContext } from '../lib/WalletContext';
 
 function LoadImageIpfsCid() {
   const [productImage, setProductImage] = useState(null);
-  const { ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid,ipfsPdfCid, setIpfsPdfCid } = useContext(WalletContext);
+  const { imageClientName, setImageClientName, pdfClientName, setPdfClientName,ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid,ipfsPdfCid, setIpfsPdfCid } = useContext(WalletContext);
 
 
 	const [ipfsImageUrl, setIpfsImageUrl] = useState(null);
 
   const onChangeImage = (e) => {
     setProductImage(e.target.files[0]);
+  setImageClientName(e.target.files[0].name); // Update imageClientName
   };
+
+
 
   const handleViewIpfs = (e) => {
 	  e.preventDefault();
@@ -40,17 +43,29 @@ console.log("ipfs -- ", process.env.NEXT_PUBLIC_REACT_APP_INFURA_PROJECT_ID);
   };
 
   return (
-    <div>
-      <div><h2>Load Image to Ipfs</h2></div>
-      <div>
-          <label for="image-btn">Choose the asset image: </label>
-               <input type="file" name="imageFile" id="image-btn" onChange={onChangeImage} accept="image/png, image/png, image/jpeg, image/jpg" />
+    <Col>
+	  <Row>
+      <Col>
 
+<label htmlFor="image-btn" className="btn btn-primary">
+Upload Image 
+<input
+    type="file"
+    name="imageFile"
+    id="image-btn"
+    onChange={onChangeImage}
+    accept="image/png, image/jpeg, image/jpg"
+    style={{ display: 'none' }}
+  />
+</label>
+	  </Col>
+	  <Col >
 	  <Button variant="primary" onClick={loadIpfsImage}>
-          Load Image to Ipfs
+          Save Image 
         </Button>
-      </div>
-    </div>
+         </Col>
+	  </Row>
+    </Col>
   );
 }
 

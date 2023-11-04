@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import LoadIpfs from "../components/LoadIpfs";
 import LoadImageIpfsCid from "../components/LoadImageIpfsCid";
 import LoadPdfIpfsCid from "../components/LoadPdfIpfsCid";
-import { Button, Form } from "react-bootstrap";
+import {Container, Row, Col, Button, Form } from "react-bootstrap";
 import { WalletContext } from "../lib/WalletContext";
 import WalletControls from "../components/WalletControls";
 import WalletDetails from "../components/WalletDetails";
@@ -23,7 +23,7 @@ function UploadAndAddPage() {
 const [initialSupply, setInitialSupply] = useState("");
 
 
-const {userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid, ipfsPdfCid, setIpfsPdfCid } =	useContext(WalletContext);
+const {imageClientName, setImageClientName, pdfClientName, setPdfClientName, userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid, ipfsPdfCid, setIpfsPdfCid } =	useContext(WalletContext);
   const handleAddressChange = (e) => {
     setQueryAddress(e.target.value);
   }
@@ -31,12 +31,34 @@ const {userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageC
     setInitialSupply(e.target.value);
   }
   return (
-    <div className="container mt-4">
-      <h2 className="font-mono mb-4">Load Prospectus and Image</h2>
+	  <div>
+<Container>
+	  <Row>
 	  <WalletControls />
-	  <WalletDetails />
-	  <LoadImageIpfsCid />
-	  {ipfsImageCid && (
+	  </Row>
+	  <Row>
+<WalletDetails />
+	  </Row>
+	   <Row className="my-3">
+	   <Col>
+      {ipfsImageCid ? (
+        <div className="border rounded p-3">
+          <img
+            src={`https://ipfs.io/ipfs/${ipfsImageCid}`}
+            alt="IPFS Image"
+            className="img-fluid custom-thumbnail"
+          />
+        </div>
+      ) : (
+        <div className="border rounded p-3 text-center">
+          <p>Image Placeholder</p>
+        </div>
+      )}
+    </Col>
+	 <Col > 
+	 <div> Client Filename: {imageClientName}</div>
+	  <div>
+{ipfsImageCid && (
         <div>
           IPFS Image hash:{' '}
           <a href={`https://ipfs.io/ipfs/${ipfsImageCid}` } target="_blank" rel="noopener noreferrer" >
@@ -44,7 +66,19 @@ const {userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageC
           </a>
         </div>
       )}
-	  <LoadPdfIpfsCid />
+
+	  </div>
+
+	  </Col>
+      <LoadImageIpfsCid />
+
+	  </Row>
+	 <Row className="my-3">
+<Col>
+	</Col>
+	<Col>
+	<div>Pdf Name: </div>
+	<div>
 	  {ipfsPdfCid && (
         <div>
           IPFS Pdf hash:{' '}
@@ -53,25 +87,26 @@ const {userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageC
           </a>
         </div>
       )}
-	  <h2 className="font-mono mb-4">Add Prospectus</h2>
-            <div>
+</div>
+         </Col>
+	  <LoadPdfIpfsCid />
+
+	  </Row>
+ <Row className="my-3">
+            <Col>
                 <strong>User Address: </strong>
                 <span>{userAddress}</span>
-            </div>
+            </Col>
 
-	  <div>
-
-
-                <Form.Label><strong>Initial Supply</strong></Form.Label>
+<Col>
                 <Form.Control
                     type="text"
                     value={initialSupply}
                     onChange={handleInitialSupplyChange}
                     placeholder="Initial Supply"
                 />
-            </div>
-
-	  {initialSupply > 0 ? (
+	</Col>
+	<Col>
   <DeployListContract
     deployContractAddress={deployContractAddress.address}
     deployContractABI={deployContractABI}
@@ -80,8 +115,9 @@ const {userAddress, ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageC
     ipfsProspectusCid={ipfsPdfCid}
     ipfsImageCid={ipfsImageCid}
   />
-) : null}
-
+</Col>
+	  </Row>
+    </Container>
 
     </div>
   );

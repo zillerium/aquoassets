@@ -35,6 +35,8 @@ function MyApp({ Component, pageProps }) {
   const [contractAddress, setContractAddress] = useState("");
   const [newUserName, setNewUserName] = useState("");
   const [shouldRegister, setShouldRegister] = useState(false);
+  const [imageClientName, setImageClientName] = useState("");
+  const [pdfClientName, setPdfClientName] = useState("");
 
 	return (
     <div>
@@ -57,6 +59,7 @@ function MyApp({ Component, pageProps }) {
           setReceiverAddress,
           ipfsImageHash,
           setIpfsImageHash,
+			imageClientName, setImageClientName, pdfClientName, setPdfClientName,
 			ipfsAddress, setIpfsAddress,
 			assetDesc, setAssetDesc,
 			assetContractAddress, setAssetContractAddress,

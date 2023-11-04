@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import { create } from 'ipfs-http-client';
 import { WalletContext } from '../lib/WalletContext';
 
@@ -40,16 +40,29 @@ console.log("ipfs -- ", process.env.NEXT_PUBLIC_REACT_APP_INFURA_PROJECT_ID);
   };
 
   return (
-    <div>
-      <div><h2>Load Pdf to Ipfs</h2></div>
-      <div>
-          <label for="image-btn">Choose the asset image: </label>
-        <input type="file" name="imageFile" id="image-btn" onChange={onChangeImage} accept="application/pdf" />
-        <Button variant="primary" onClick={loadIpfsImage}>
-          Load Pdf to Ipfs
-        </Button>
-      </div>
-    </div>
+	  <Col>
+  <Row>
+    <Col>
+      <label htmlFor="pdf-btn" className="btn btn-primary">
+        Upload PDF
+        <input
+          type="file"
+          name="pdfFile" // This should be different from imageFile to handle PDFs
+          id="pdf-btn"
+          onChange={onChangeImage} // Assuming you have a separate handler for PDF
+          accept="application/pdf"
+          style={{ display: 'none' }} // To hide the input but show the label
+        />
+      </label>
+    </Col>
+    <Col>
+      <Button variant="primary" onClick={loadIpfsImage}> {/* Assuming a separate function for PDF */}
+        Save PDF
+      </Button>
+    </Col>
+  </Row>
+</Col>
+
   );
 }
 

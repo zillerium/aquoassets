@@ -1,61 +1,64 @@
-import React, { useContext, useState } from 'react';
+import React, {useState, useContext } from 'react';
 import { useContractWrite, usePrepareContractWrite } from 'wagmi';
 import { WalletContext } from '../lib/WalletContext';
-import { Button, InputGroup, FormControl } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
-//function DeployListContract({ addDeployListAddress, addDeployListABI,  initialSupply }) {
 function DeployListContract({
-deployContractAddress,
-	deployContractABI,
-	listContractAddress,
-	initialSupply,
-	ipfsProspectusCid,
-	ipfsImageCid
+  deployContractAddress,
+  deployContractABI,
+  listContractAddress,
+  initialSupply,
+  ipfsProspectusCid,
+  ipfsImageCid
 }) {
-const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
-console.log(deployContractAddress);
-    const argArr = [ipfsProspectusCid, ipfsImageCid, initialSupply];  // Updated to include prospectusCid
-    const { config, error } = usePrepareContractWrite({
-        address: deployContractAddress,
-        abi: deployContractABI,
-        functionName: 'deployAndRegisterContract',
-        args: argArr,
-    });
-console.log(config)
-    const { data, isLoading, isSuccess, write } = useContractWrite(config);
+  const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
 
-    const [writeError, setWriteError] = useState(null);
-    const [txnStatus, setTxnStatus] = useState(null);
+  // Check if initialSupply is a positive number
+  const isInitialSupplyPositive = Number(initialSupply) > 0;
+    const [writeError, setWriteError] = useState(null); // Declare state for write errors
+ const [txnStatus, setTxnStatus] = useState(null);
 
-    const transferName = async () => {
-        if (typeof write === 'function') {
-            try {
-                const res = await write();
-                console.log('-- res', res);
-                setTxnStatus("Transaction started on the blockchain");
-            } catch (err) {
-                console.log('---- err', err);
-                setWriteError(err.message);
-            }
-        } else {
-            console.error('write is not available or not a function');
-        }
-    };
+  const { config, error } = usePrepareContractWrite({
+    address: deployContractAddress,
+    abi: deployContractABI,
+    functionName: 'deployAndRegisterContract',
+    args: isInitialSupplyPositive ? [ipfsProspectusCid, ipfsImageCid, initialSupply] : null,
+    enabled: isInitialSupplyPositive, // enable writing only if the condition is met
+  });
 
-    if (isSuccess) {
-        setExecTransfer(false);
+  const { data, isLoading, isSuccess, write } = useContractWrite(config);
+
+  const transferName = async () => {
+    if (typeof write === 'function' && isInitialSupplyPositive) {
+      try {
+        const res = await write();
+        setTxnStatus("Transaction started on the blockchain");
+      } catch (err) {
+        setWriteError(err.message);
+      }
+    } else {
+      console.error('write function not available or initial supply not positive');
     }
+  };
 
-    return (
-        <>
-            <Button variant="primary" onClick={transferName}>
-                Deploy  
-            </Button>
-            {error && <div>Error in formatting {error.message}</div>}
-            {writeError && <div>Error in writing to contract: {writeError}</div>}
-            {txnStatus && !writeError && !error && (<div>Transaction Status: {txnStatus}</div>)}
-        </>
-    );
+  if (isSuccess) {
+    setExecTransfer(false);
+  }
+
+  return (
+    <>
+      <Button
+        variant="primary"
+        onClick={transferName}
+        disabled={!isInitialSupplyPositive || isLoading} // Disable the button when initialSupply is not positive or if loading
+      >
+        Deploy
+      </Button>
+      {error && <div>Error in formatting {error.message}</div>}
+      {writeError && <div>Error in writing to contract: {writeError}</div>}
+      {txnStatus && !writeError && !error && <div>Transaction Status: {txnStatus}</div>}
+    </>
+  );
 }
 
 export default DeployListContract;
