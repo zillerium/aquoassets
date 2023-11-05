@@ -35,7 +35,9 @@ return (
     <ListGroup>
       {assetsData.map((asset, index) => (
         <ListGroup.Item key={index}>
-	      {asset.contractAddress}
+            <a href={`/ContractPage?q=${asset.contractAddress}`} target="_blank" rel="noopener noreferrer">
+  {asset.contractAddress}
+	      </a>
         </ListGroup.Item>
       ))}
     </ListGroup>
