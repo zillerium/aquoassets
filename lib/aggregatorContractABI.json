@@ -1,0 +1,52 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_contractListAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_prospectusRegistryAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "contractAddress",
+				"type": "address"
+			}
+		],
+		"name": "getContractAndProspectus",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "contractId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "prospectusCid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "imageCid",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "proposer",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

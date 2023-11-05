@@ -50,6 +50,42 @@
 	{
 		"inputs": [
 			{
+				"internalType": "string",
+				"name": "_prospectusCid",
+				"type": "string"
+			}
+		],
+		"name": "getProspectusRecord",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "prospectusCid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "imageCid",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "proposer",
+						"type": "address"
+					}
+				],
+				"internalType": "struct ProspectusRegistry.ProspectusRecord",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "uint256",
 				"name": "_index",
 				"type": "uint256"

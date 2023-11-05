@@ -1,4 +1,5 @@
 // ...other imports
+import Link from 'next/link';
 import React, { useEffect, useState, useContext } from "react";
 import { Table } from "react-bootstrap";
 import { useContractRead } from "wagmi";
@@ -28,17 +29,20 @@ function ShowAllContractsList({ listContractAddress, listContractABI, onSelectCo
     return <div>Loading...</div>;
   }
 
-  return (
-    <div className="container mt-4">
-      <ListGroup>
-        {assetsData.map((asset, index) => (
-          <ListGroup.Item key={index} onClick={() => onSelectContract(asset.contractAddress)}>
-            {asset.contractAddress}
-          </ListGroup.Item>
-        ))}
-      </ListGroup>
-    </div>
-  );
+// Inside your .jsx file where you map over your assetsData
+return (
+  <div className="container mt-4">
+    <ListGroup>
+      {assetsData.map((asset, index) => (
+        <ListGroup.Item key={index}>
+	      {asset.contractAddress}
+        </ListGroup.Item>
+      ))}
+    </ListGroup>
+  </div>
+);
+
+
 }
 
 export default ShowAllContractsList;
