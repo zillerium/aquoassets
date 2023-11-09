@@ -7,6 +7,7 @@ import contractABI from "../lib/contractABI.json";
 import listContractABI from "../lib/listContractABI.json";
 import listContractAddress from "../lib/listContractAddress.json";
 import WalletControls from "../components/WalletControls";
+import ShareholdersList from "../components/ShareholdersList";
 import WalletDetails from "../components/WalletDetails";
 
 function AssetPage() {
@@ -55,12 +56,17 @@ function AssetPage() {
                             </Form.Group>
                         </Form>
                         {selectedContract && (
-                            <AssetManager
+                            <><AssetManager
                                 contractAddress={selectedContract}
                                 contractABI={contractABI}
                                 userAddress={userAddress}
                                 queryAddress={queryAddress}
                             />
+				   <ShareholdersList
+                                     contractAddress={selectedContract}
+                                     contractABI={contractABI}
+                                    />
+				</>
                         )}
                     </Col>
                 </Row>

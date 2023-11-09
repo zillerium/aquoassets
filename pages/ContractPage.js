@@ -3,6 +3,8 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import GetContractDetails from '../components/GetContractDetails'; // make sure to use the correct path to your component
+import ShareholdersList from '../components/ShareholdersList'; // make sure to use the correct path to your component
+import contractABI from '../lib/contractABI.json';
 import aggregatorContractABI from '../lib/aggregatorContractABI.json';
 import aggregatorContractAddress from '../lib/aggregatorContractAddress.json';
 
@@ -21,6 +23,10 @@ export default function ContractPage() {
             aggregatorContractAddress={aggregatorContractAddress.address}
             aggregatorContractABI={aggregatorContractABI}
           />
+	                  <ShareholdersList
+                                     contractAddress={q}
+                                     contractABI={contractABI}
+                                    />
         </>
       ) : (
         <p>Please provide a contract query parameter.</p>
