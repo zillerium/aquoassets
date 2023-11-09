@@ -19,6 +19,7 @@ const { userAddress, setUserAddress } = useContext(WalletContext);
         <Nav className="mr-auto">
           <Nav.Link as={Link} href="/" passHref>Home</Nav.Link>
           <NavDropdown title="RWA Contracts" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} href="/ListAssetPage" passHref>List Contracts</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/AssetPage" passHref>Read Assets in a Contract</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/TransferAssetPage" passHref>Transfer Asset</NavDropdown.Item>
           </NavDropdown>

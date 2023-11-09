@@ -6,7 +6,7 @@ import { useContractRead } from "wagmi";
 import { WalletContext } from "../lib/WalletContext";
 import { ListGroup } from "react-bootstrap";
 
-function ShowAllContractsList({ listContractAddress, listContractABI, onSelectContract }) {
+function ShowAllContractsLinkList({ listContractAddress, listContractABI, onSelectContract }) {
   const [assetsData, setAssetsData] = useState([]);
 
   const config = {
@@ -31,18 +31,21 @@ function ShowAllContractsList({ listContractAddress, listContractABI, onSelectCo
 
 // Inside your .jsx file where you map over your assetsData
 return (
-    <div className="container mt-4">
-      <ListGroup>
-        {assetsData.map((asset, index) => (
-          <ListGroup.Item key={index} onClick={() => onSelectContract(asset.contractAddress)}>
-            {asset.contractAddress}
-          </ListGroup.Item>
-        ))}
-      </ListGroup>
-    </div>
-  );
+  <div className="container mt-4">
+    <ListGroup>
+      {assetsData.map((asset, index) => (
+        <ListGroup.Item key={index}>
+            <a href={`/ContractPage?q=${asset.contractAddress}`} target="_blank" rel="noopener noreferrer">
+  {asset.contractAddress}
+	      </a>
+        </ListGroup.Item>
+      ))}
+    </ListGroup>
+  </div>
+);
+
 
 }
 
-export default ShowAllContractsList;
+export default ShowAllContractsLinkList;
 
