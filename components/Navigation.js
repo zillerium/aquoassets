@@ -13,11 +13,14 @@ const { userAddress, setUserAddress } = useContext(WalletContext);
     <Navbar className="navbar-custom" expand="lg">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-	             <NavLink className="navbar-brand" exact to="/">
+          <Nav.Link as={Link} href="/" passHref>
 	  <img src="/bluelogo.png" alt="Logo" className="logo-img" />
-        </NavLink>
+	  </Nav.Link>
         <Nav className="mr-auto">
           <Nav.Link as={Link} href="/" passHref>Home</Nav.Link>
+          <NavDropdown title="Help" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} href="/GettingStarted" passHref>Getting Started</NavDropdown.Item>
+          </NavDropdown>
           <NavDropdown title="RWA Contracts" id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} href="/ListAssetPage" passHref>List Contracts</NavDropdown.Item>
             <NavDropdown.Item as={Link} href="/AssetPage" passHref>Read Assets in a Contract</NavDropdown.Item>
