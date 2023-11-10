@@ -37,8 +37,15 @@ return (
                     <h1 className="display-5 mb-2 text-white">Make Your Assets Liquid</h1>
                     <p className="lead mb-3 text-white">Tokenized Real World Assets, with Derivatives</p>
         <a href="./UploadAndAddPage" className="btn btn-light mr-2 text-dark text-decoration-none">Get Started</a>
+            <span className="mx-2"></span> {/* Add space between buttons */}
 
-                    <button className="btn btn-outline-light">Watch Video</button>
+<a href="https://www.youtube.com/shorts/dlyxOd8P9uk" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="btn btn-dark btn-outline-light mr-2 text-white text-decoration-none custom-video-button">
+               Watch Video
+            </a>
+
                 </div>
                 <div className="col-lg-6 col-12 mt-4 mt-lg-0"> {/* Adjusting for mobile */}
                     <img src="https://ipfs.io/ipfs/QmZFpRw61fRmKh6JwNnAyrDi9mSMPh6DZEJmLhDMrWRgv7" alt="Financial Liquidity" className="img-fluid" />
