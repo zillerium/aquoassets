@@ -36,7 +36,8 @@ return (
                 <div className="col-lg-6 col-12"> {/* Adjusting for mobile */}
                     <h1 className="display-5 mb-2 text-white">Make Your Assets Liquid</h1>
                     <p className="lead mb-3 text-white">Tokenized Real World Assets, with Derivatives</p>
-                    <button className="btn btn-light mr-2">Get Started</button>
+        <a href="./UploadAndAddPage" className="btn btn-light mr-2 text-dark text-decoration-none">Get Started</a>
+
                     <button className="btn btn-outline-light">Watch Video</button>
                 </div>
                 <div className="col-lg-6 col-12 mt-4 mt-lg-0"> {/* Adjusting for mobile */}
@@ -45,6 +46,72 @@ return (
             </div>
         </div>
     </div>
+	<div style={{ backgroundColor: "white" }}>
+        <Container>
+          <Row className="align-items-center">
+            <Col lg={6} xs={12}>
+              <Image
+                src="https://ipfs.io/ipfs/QmNQVj8wup1kx89QZ8o7ysZjvnZ6Vy8st8deJVF8c2jqCQ"
+                alt="House fractionally owned"
+                fluid
+              />
+            </Col>
+            <Col lg={6} xs={12}>
+	  <h1 className="display-5 mb-2 text-black">Tokenize Real World Assets to create blockchain tokens.</h1>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+<div style={{ backgroundColor: "white" }}>
+        <Container>
+          <Row className="align-items-center">
+            <Col lg={6} xs={12}>
+                <h1 className="display-5 mb-2 text-black">Merge assets to create liquidity via voting</h1>
+            </Col>
+            <Col lg={6} xs={12}>
+              <Image
+                src="https://ipfs.io/ipfs/QmZsxZ9nHBU5sbg9dxueUGdfuKN2ibYYqEoGk3eZGD8rq8"
+                alt="Create Liquidity"
+                fluid
+              />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+<div style={{ backgroundColor: "white" }}>
+        <Container>
+          <Row className="align-items-center">
+            <Col lg={6} xs={12}>
+              <Image
+                src="https://ipfs.io/ipfs/QmNfdVvMajNmEw8buJTK56QJSwxn9Fsa4qvztdXqPUqyp1"
+                alt="Derivatives"
+                fluid
+              />
+            </Col>
+            <Col lg={6} xs={12}>
+          <h1 className="display-5 mb-2 text-black">Create derivatives on assets (options to buy)</h1>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+	<div style={{ backgroundColor: "white" }}>
+        <Container>
+          <Row className="align-items-center">
+            <Col lg={6} xs={12}>
+                <h1 className="display-5 mb-2 text-black">Trade derivatives, hedge and speculate</h1>
+            </Col>
+            <Col lg={6} xs={12}>
+              <Image
+                src="https://ipfs.io/ipfs/QmUrmW9mztBYaqV1tABAXkR4cMotgvvTe9F2kF4ikKfhhE"
+                alt="Derivatives"
+                fluid
+              />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
 </div>
 );
 
