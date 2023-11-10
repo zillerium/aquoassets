@@ -33,7 +33,10 @@ function GettingStarted() {
         <p>
           Derivatives are contracts (financial instruments) based on an underlying asset, e.g. an option to buy a house in the future. We allow derivatives to be created via smart contracts.
         </p>
-      </div>
+	  <h2>Demo</h2><p>
+	  <a href="https://www.youtube.com/watch?v=qJVm2Z43IkI" target="_blank">Demo</a>
+      </p>
+	  </div>
     </Container>
   );
 }

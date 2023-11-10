@@ -31,6 +31,7 @@ function GetContractDetails({ contractAddress, aggregatorContractAddress, aggreg
 
   if (isLoading) return <p>Loading prospectus details...</p>;
   if (error) return <p>Error: {error}</p>;
+ console.log("data === ", data );
  console.log("pro ", contractDetails );
   // No need to output contractDetails directly, the detailed fields are displayed below
 return (

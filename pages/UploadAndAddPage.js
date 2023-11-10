@@ -31,6 +31,7 @@ const {signed, setSigned, imageClientName, setImageClientName, pdfClientName, se
  const handleInitialSupplyChange = (e) => {
     setInitialSupply(e.target.value);
   }
+	console.log("pdf == ", ipfsPdfCid );
   return (
 	  <div>
 <Container>
@@ -78,7 +79,7 @@ const {signed, setSigned, imageClientName, setImageClientName, pdfClientName, se
 <Col>
 	</Col>
 	<Col>
-	<div>Pdf Name: </div>
+	<div>Pdf Name:  {pdfClientName} </div>
 	<div>
 	  {ipfsPdfCid && (
         <div>

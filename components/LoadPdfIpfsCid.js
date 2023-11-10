@@ -5,23 +5,25 @@ import { WalletContext } from '../lib/WalletContext';
 
 function LoadPdfIpfsCid({enabledButton}) {
   const [productImage, setProductImage] = useState(null);
-  const { ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid,ipfsPdfCid, setIpfsPdfCid } = useContext(WalletContext);
-
+//  const { ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid,ipfsPdfCid, setIpfsPdfCid } = useContext(WalletContext);
+ const { imageClientName, setImageClientName, pdfClientName, setPdfClientName,ipfsImageHash, setIpfsImageHash, ipfsImageCid, setIpfsImageCid,ipfsPdfCid, setIpfsPdfCid } = useContext(WalletContext);
 
 	const [ipfsImageUrl, setIpfsImageUrl] = useState(null);
 
-  const onChangeImage = (e) => {
+  const onChangePdf = (e) => {
     setProductImage(e.target.files[0]);
+	    setPdfClientName(e.target.files[0].name); // Update imageClientName
+
   };
 
   const handleViewIpfs = (e) => {
 	  e.preventDefault();
-    if (ipfsImageHash) {
-      setIpfsImageUrl(`https://ipfs.io/ipfs/${ipfsImageHash}`);
+    if (ipfsPdfCid) {
+      setIpfsPdfCid(`https://ipfs.io/ipfs/${ipfsImageHash}`);
     }
   };
 
-  const loadIpfsImage = async () => {
+  const loadIpfsPdf = async () => {
     const ipfs = create({
       host: 'ipfs.infura.io',
       port: 5001,
@@ -33,9 +35,9 @@ function LoadPdfIpfsCid({enabledButton}) {
       },
     });
 console.log("ipfs -- ", process.env.NEXT_PUBLIC_REACT_APP_INFURA_PROJECT_ID);
-    const imageFile = await productImage.arrayBuffer();
-    const { cid } = await ipfs.add(imageFile, { pin: true });
-    setIpfsImageHash(cid.toString());
+    const pdfFile = await productImage.arrayBuffer();
+    const { cid } = await ipfs.add(pdfFile, { pin: true });
+   // setIpfsImageHash(cid.toString());
     setIpfsPdfCid(cid.toString());
   };
 
@@ -53,7 +55,7 @@ console.log("ipfs -- ", process.env.NEXT_PUBLIC_REACT_APP_INFURA_PROJECT_ID);
           type="file"
           name="pdfFile" // This should be different from imageFile to handle PDFs
           id="pdf-btn"
-          onChange={onChangeImage} // Assuming you have a separate handler for PDF
+          onChange={onChangePdf} // Assuming you have a separate handler for PDF
           accept="application/pdf"
           style={{ display: 'none' }} // To hide the input but show the label
               disabled={!enabledButton} // Disable input when button not enabled
@@ -62,7 +64,7 @@ console.log("ipfs -- ", process.env.NEXT_PUBLIC_REACT_APP_INFURA_PROJECT_ID);
     </Col>
     <Col>
       <Button variant="primary" 
-	  onClick={loadIpfsImage}
+	  onClick={loadIpfsPdf}
               disabled={!enabledButton} // Disable input when button not enabled
 	  > {/* Assuming a separate function for PDF */}
         Save PDF

@@ -5,7 +5,7 @@ import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
 function AddProspectus({ addProspectusesAddress, addProspectusesABI, userAddress, prospectusCid, ipfsImageHash }) {
     const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
-
+console.log(" data to insert prospectus cid + image cid == ", prospectusCid, ipfsImageHash);
     const argArr = [prospectusCid, ipfsImageHash];  // Updated to include prospectusCid
     const { config, error } = usePrepareContractWrite({
         address: addProspectusesAddress,

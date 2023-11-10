@@ -19,6 +19,9 @@ function DeployListContract({
     const [writeError, setWriteError] = useState(null); // Declare state for write errors
  const [txnStatus, setTxnStatus] = useState(null);
 
+console.log("data to create new record == ", ipfsProspectusCid, ipfsImageCid, initialSupply);
+console.log("data to create new record == ", ipfsProspectusCid, ipfsImageCid, initialSupply);
+
   const { config, error } = usePrepareContractWrite({
     address: deployContractAddress,
     abi: deployContractABI,
