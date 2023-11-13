@@ -30,10 +30,16 @@ function Technical() {
         <p>
 	  The assets have a valuation but no liquidity, but they can trade with POOL tokens, eg if a HOUSE token is valued at 500 USD and the POOL token value is 1000 USD, then 2 HOUSE tokens = 1 POOL token in value. Therefore asset holders can trade their asset tokens for POOL tokens. 
         </p>
+        <h2>Liquidity POOL</h2>
+	  <p>A liquidity pool is then maintained via investors using a stablecoin.</p>
         <h2>Trading POOL tokens</h2>
         <p>
-	  POOL tokens can then be exchanged and there is liquidity. The POOL token itself can then be exchanged for the USDC coin.
+	  POOL tokens can trade via an AMM to the LP coins and via Oracles. So this means the POOL tokens can trade to USDC coins and the LP pool will own some of the POOL tokens, which can also be sold for USDC. This creates liquidity. The AMM (automated market maker) supplies the price based on Oracles.
         </p>
+	  <p>
+                    <img src="https://ipfs.io/ipfs/Qmbh8cHhmrgu5RUs3FrJaup2nE4QG6mBo3Wisejr1YXvcj" alt="Financial Liquidity
+" className="img-fluid" />
+	  </p>
 	  </div>
     </Container>
   );
