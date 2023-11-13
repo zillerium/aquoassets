@@ -27,7 +27,7 @@ function GettingStarted() {
         </p>
         <h2>Creating Liquidity</h2>
         <p>
-          We do this via investment pools, in which RWAs are merged. This is done via a voting process (called DAO voting).
+	  This is done via POOL tokens (see the Technical page for details).
         </p>
         <h2>Derivatives</h2>
         <p>
