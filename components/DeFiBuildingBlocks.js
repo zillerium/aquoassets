@@ -13,7 +13,7 @@ const DeFiBuildingBlocks = () => {
             <p className="lead mb-3">For Tokenization and Financial Instruments</p>
             <div>
               <a href="./UploadAndAddPage" className="btn btn-light me-2 text-dark">Get Started</a>
-              <a href="https://www.youtube.com/shorts/dlyxOd8P9uk" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light text-white">Watch Video</a>
+              <a href="https://youtube.com/watch?v=sRlT_yY9WHw" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light text-white">Watch Video</a>
             </div>
           </Col>
           <Col lg={6} xs={12} className="mt-4 mt-lg-0">
