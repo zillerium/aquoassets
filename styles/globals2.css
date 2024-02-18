@@ -2,13 +2,63 @@
 body {
   font-family: sans-serif;
 }
- 
+
+body.skin-blue {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+
+body.skin-black {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.skin-white {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.nnavbar-custom.skin-blue {
+  background-color: #3333ff;
+}
+
+.nnavbar-custom.skin-black {
+  background-color: #333333;
+}
+
+.nnavbar-custom.skin-white {
+  background-color: #000000;
+}
+
+/* ...Your Existing CSS... */
+
+/* Additional skin-specific CSS (nav links and dropdowns) */
+body.skin-white .navbar-custom .nav-link,
+body.skin-white .navbar-custom .dropdown-menu .dropdown-item {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+body.skin-black .navbar-custom .nav-link,
+body.skin-black .navbar-custom .dropdown-menu .dropdown-item {
+  color: #ffffff;
+  background-color: #333333;
+}
 .milestone-item {
   background-color: inherit;
   color: inherit;
   border: none;
 }
- 
+
+body.skin-white .milestone-item {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.skin-black .milestone-item {
+  background-color: #000000;
+  color: #ffffff;
+}
 .defi-container {
   padding: 20px;
   minHeight: 100vh;
@@ -30,7 +80,37 @@ body {
   display: flex;
   gap: 10px;
 }
- 
+
+/* Default skin */
+body.skin-blue .defi-container {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+body.skin-blue .defi-paper-item {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+
+/* Black skin */
+body.skin-black .defi-container {
+  background-color: #000000;
+  color: #ffffff;
+}
+body.skin-black .defi-paper-item {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* White skin */
+body.skin-white .defi-container {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.skin-white .defi-paper-item {
+  background-color: #ffffff;
+  color: #000000;
+}
+
 .ai-container {
   padding: 20px;
   minHeight: 100vh;
@@ -61,7 +141,36 @@ body {
   color: inherit;
   textDecoration: 'none';
 }
- 
+
+/* Default skin */
+body.skin-blue .ai-container {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+body.skin-blue .ai-link-item {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+
+/* Black skin */
+body.skin-black .ai-container {
+  background-color: #000000;
+  color: #ffffff;
+}
+body.skin-black .ai-link-item {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* White skin */
+body.skin-white .ai-container {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.skin-white .ai-link-item {
+  background-color: #ffffff;
+  color: #000000;
+}
 .primitives-container {
   padding: 20px;
   minHeight: 100vh;
@@ -76,7 +185,35 @@ body {
   textDecoration: underline;
 }
 
- 
+/* Default skin */
+body.skin-blue .primitives-container {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+body.skin-blue .primitives-list-item {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+
+/* Black skin */
+body.skin-black .primitives-container {
+  background-color: #000000;
+  color: #ffffff;
+}
+body.skin-black .primitives-list-item {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* White skin */
+body.skin-white .primitives-container {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.skin-white .primitives-list-item {
+  background-color: #ffffff;
+  color: #000000;
+}
 .paper-container {
 }
 
@@ -97,7 +234,23 @@ body {
   minHeight: 100vh;
 }
 
- 
+/* Default skin */
+body.skin-blue .books-container, body.skin-blue .paper-list-item {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+
+/* Black skin */
+body.skin-black .books-container, body.skin-black .paper-list-item {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* White skin */
+body.skin-white .books-container, body.skin-white .paper-list-item {
+  background-color: #ffffff;
+  color: #000000;
+}
 .notes-container {
 }
 
@@ -108,7 +261,24 @@ body {
 .notes-link {
   text-decoration: underline; /* Underline the links */
 }
- 
+
+/* Default skin */
+body.skin-blue .notes-container, body.skin-blue .notes-list-item {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+
+/* Black skin */
+body.skin-black .notes-container, body.skin-black .notes-list-item {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* White skin */
+body.skin-white .notes-container, body.skin-white .notes-list-item {
+  background-color: #ffffff;
+  color: #000000;
+}
 .paper-container {
 }
 
@@ -126,12 +296,46 @@ body {
   padding: 20px;
   min-height: 100vh;
 }
- 
+
+/* Default skin */
+body.skin-blue .blockchain-container, body.skin-blue .paper-list-item {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+
+/* Black skin */
+body.skin-black .blockchain-container, body.skin-black .paper-list-item {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* White skin */
+body.skin-white .blockchain-container, body.skin-white .paper-list-item {
+  background-color: #ffffff;
+  color: #000000;
+}
 .derivatives-container {
   padding: 20px;
   min-height: 100vh;
 }
- 
+
+/* Default skin */
+body.skin-blue .derivatives-container, body.skin-blue .paper-list-item {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+
+/* Black skin */
+body.skin-black .derivatives-container, body.skin-black .paper-list-item {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* White skin */
+body.skin-white .derivatives-container, body.skin-white .paper-list-item {
+  background-color: #ffffff;
+  color: #000000;
+}
 
 /* TextDisplay.module.css */
 .keyword:hover {
@@ -195,13 +399,16 @@ body {
   color: #000; /* This is black text. Adjust if needed. */
 }
 /*.list-group-item-action:hover {
-  background-color: #FFFFFF;
+  background-color: #f0f0f0;
 } */
 	.logo-img {
   max-height: 50px; /* Adjust the value as needed */
   max-width: 100%; /* Ensure the logo doesn't exceed the container width */
 }
- 
+
+
+
+
 .navbar-custom {
     background-color: #FFFFFF; /* Light gray */
     border-bottom: 1px solid #e0e0e0; /* Border bottom */
@@ -230,7 +437,7 @@ body {
 }
 
 .navbar-custom .dropdown-item:hover {
-    background-color: #FFFFFF; /* Light gray background for hovered dropdown items */
+    background-color: #f0f0f0; /* Light gray background for hovered dropdown items */
 }
 
 .navbar-custom .mr-auto {
@@ -246,7 +453,7 @@ body {
 /* styles.css */
 
 .container-custom {
-    background-color: #0E0929;
+    background-color: #37517e;
     padding: 5% 0;
 }
 
@@ -271,7 +478,7 @@ body {
 
 .contentArea {
 	    /*background-color: #37517e; */
-	  /*  background-color: #0E0929; */
+	    background-color: #0E0929; 
     padding: 3rem 0;
 }
 
@@ -283,28 +490,4 @@ body {
 .rounded-image {
   border-radius: 40px; /* Adjust the radius as needed */
 }
-
-/* globals.css */
-
-.defi-assets-container {
-	    background-color: #0E0929;
-}
-.tokenize-assets-container {
-	    background-color: #FFFFFF;
-  margin-top: 20px; /* Adjust the value as needed */
-  margin-bottom: 20px; /* Adjust the value as needed */
-}
-.liquidity-voting-container {
-	    background-color: #FFFFFF;
-  margin-top: 20px; /* Adjust the value as needed */
-  margin-bottom: 20px; /* Adjust the value as needed */
-}
-
-
-.tradederivatives-container {
-	    background-color: #F1EDEC;
-  margin-top: 20px; /* Adjust the value as needed */
-  margin-bottom: 20px; /* Adjust the value as needed */
-}
-
 

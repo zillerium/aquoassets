@@ -14,7 +14,7 @@ const { userAddress, setUserAddress } = useContext(WalletContext);
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
           <Nav.Link as={Link} href="/" passHref>
-	  <img src="/bluelogo.png" alt="Logo" className="logo-img" />
+	  <img src="/aquologo.png" alt="Logo" className="logo-img" />
 	  </Nav.Link>
         <Nav className="mr-auto">
           <Nav.Link as={Link} href="/" passHref>Home</Nav.Link>
