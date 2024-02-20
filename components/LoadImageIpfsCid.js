@@ -70,7 +70,7 @@ return (
             onClick={loadIpfsImage}
             disabled={!enabledButton} // Disable button when button not enabled
           >
-            Save Image 
+            Register Image 
           </Button>
         </Col>
       </Row>

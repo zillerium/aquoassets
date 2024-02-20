@@ -67,7 +67,7 @@ console.log("ipfs -- ", process.env.NEXT_PUBLIC_REACT_APP_INFURA_PROJECT_ID);
 	  onClick={loadIpfsPdf}
               disabled={!enabledButton} // Disable input when button not enabled
 	  > {/* Assuming a separate function for PDF */}
-        Save PDF
+        Register PDF
       </Button>
     </Col>
   </Row>
