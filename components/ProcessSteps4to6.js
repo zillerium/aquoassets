@@ -25,12 +25,23 @@ const ProcessSteps4to6 = () => {
 
       <Accordion>
         <Accordion.Item eventKey="5">
-          <Accordion.Header>6. Tokenize</Accordion.Header>
+          <Accordion.Header>6. Register on the DB</Accordion.Header>
+          <Accordion.Body>
+            Register the prospectus on the DB.
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+
+
+     <Accordion>
+        <Accordion.Item eventKey="5">
+          <Accordion.Header>7. Tokenize</Accordion.Header>
           <Accordion.Body>
             Your prospectus offering is then tokenized via the Tokenize option.
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+
     </>
   );
 };
