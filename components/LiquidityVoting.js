@@ -14,7 +14,7 @@ const LiquidityVoting = () => {
           </Col>
           <Col lg={6} xs={12}>
             <Image
-              src="https://i.ibb.co/JyczpwZ/Copy-of-aquo-ways-to.png"
+              src="https://ipfs.io/ipfs/QmdUuPMopqAC4FyhBiPXA3eo7XPxy2NHuSrtVciFRvmdUJ"
               alt="Create Liquidity"
 	  fluid
               className="rounded-image" // Ensure this class is defined in your CSS

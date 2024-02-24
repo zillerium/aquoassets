@@ -12,7 +12,7 @@ const TradeDerivatives = () => {
 	  </Col>
           <Col lg={6} xs={12}>
             <img
-              src="https://i.ibb.co/1K2kB5G/aquo-trade-1.png"
+              src="https://ipfs.io/ipfs/QmaCqH5xD2ByFU8D5yZd8dAyncp6zVNiBvW3kY9xP9hArg"
               alt="Derivatives"
               className="img-fluid" // Bootstrap class to make the image responsive
             />

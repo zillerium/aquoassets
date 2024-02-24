@@ -17,7 +17,8 @@ const DeFiBuildingBlocks = () => {
             </div>
           </Col>
           <Col lg={6} xs={12} className="mt-4 mt-lg-0">
-            <img src="https://i.ibb.co/km2BTxS/rwa.png" alt="Financial Liquidity" className="img-fluid rounded" />
+            <img src="https://ipfs.io/ipfs/Qmf82L91Zi887maMi4H6J1oYXx4n738sTZt5FZfdbJkFeT"
+	  alt="Financial Liquidity" className="img-fluid rounded" />
           </Col>
         </Row>
       </Container>

@@ -8,7 +8,7 @@ const AssetDerivatives = () => {
         <Row className="align-items-center">
           <Col lg={6} xs={12}>
             <img
-              src="https://i.ibb.co/9wmhYKM/derivatives-aquo.png"
+              src="https://ipfs.io/ipfs/QmS11Bvcb4Vjk1MUJA6p32j2Z4ftpc4PFeBLomzr8PJeC8"
               alt="Derivatives"
               className="img-fluid rounded-image" // Bootstrap class to make the image responsive
             />

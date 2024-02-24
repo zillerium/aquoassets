@@ -10,7 +10,7 @@ const TokenizeAssets = () => {
         <Row className="align-items-center">
           <Col lg={6} xs={12}>
             <Image
-              src="https://i.ibb.co/6szxtVZ/liquidity.png"
+              src="https://ipfs.io/ipfs/QmepdgcyoYxRL3sR7ZEPTy2a3es9NragPYbUmMHHmoq4bD"
               alt="House fractionally owned"
               fluid
 	      className="rounded-image"
