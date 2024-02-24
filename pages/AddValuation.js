@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddRwaValuation from "../components/AddRwaValuation";
 import { Form, Row, Col, Container } from "react-bootstrap";
+import GetAllRwasComponent from "../components/GetAllRwasComponent"; // Import the new component
 
 function AddValuation() {
   const [rwaId, setRwaId] = useState("");
@@ -9,9 +10,14 @@ function AddValuation() {
   const [priceDate, setPriceDate] = useState(new Date().toISOString().split('T')[0]); // Default to today's date in YYYY-MM-DD format
   const [currency, setCurrency] = useState("USD");
 
-  const handleRwaIdChange = (e) => {
-    setRwaId(e.target.value);
+  const handleRwaIdChange = (selectedId) => {
+    setRwaId(selectedId); // Update the rwaId state with the selected ID
   };
+
+
+//  const handleRwaIdChange = (e) => {
+//    setRwaId(e.target.value);
+//  };
 
   const handleValuationChange = (e) => {
     setValuation(e.target.value);
@@ -108,6 +114,11 @@ function AddValuation() {
             priceDate={priceDate}
             currency={currency}
           />
+	  // In AddValuation.js, where GetAllRwasComponent is used
+<GetAllRwasComponent onRwaIdSelected={(id) => setRwaId(id)} />
+
+
+
         </Col>
       </Row>
     </Container>
