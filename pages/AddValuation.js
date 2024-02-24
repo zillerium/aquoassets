@@ -79,16 +79,18 @@ function AddValuation() {
                 />
               </Col>
             </Form.Group>
-
-            <Form.Group as={Row}>
+ <Form.Group as={Row}>
               <Form.Label column sm="4"><strong>RWA ID</strong></Form.Label>
-              <Col sm="8">
+              <Col sm="4">
+                <GetAllRwasComponent onRwaIdSelected={setRwaId} />
+              </Col>
+              <Col sm="4">
                 <Form.Control
                   size="sm"
                   type="text"
                   value={rwaId}
-                  onChange={handleRwaIdChange}
-                  placeholder="Enter RWA ID"
+                  placeholder="Selected RWA ID"
+                  readOnly // Make this read-only if you want it to be populated based on dropdown selection
                 />
               </Col>
             </Form.Group>
@@ -114,8 +116,6 @@ function AddValuation() {
             priceDate={priceDate}
             currency={currency}
           />
-	  // In AddValuation.js, where GetAllRwasComponent is used
-<GetAllRwasComponent onRwaIdSelected={(id) => setRwaId(id)} />
 
 
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Form, Row, Col, Container, Button } from "react-bootstrap"; // Import Button from react-bootstrap
 
 function AddRwaValuation({ rwaId, valuation, rwaDesc, priceDate, currency }) {
   const [statusMessage, setStatusMessage] = useState(''); // Updated state to handle all messages
@@ -41,7 +42,8 @@ function AddRwaValuation({ rwaId, valuation, rwaDesc, priceDate, currency }) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <button type="submit">Submit Valuation</button>
+	                  <Button type="submit" variant="primary">Submit Valuation</Button>
+
       </form>
       {statusMessage && <p style={{ color: statusMessage.includes('failed') ? 'red' : 'green' }}>{statusMessage}</p>}
     </div>
