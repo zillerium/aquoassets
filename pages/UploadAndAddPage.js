@@ -41,6 +41,7 @@ function UploadAndAddPage() {
 
   const [rwaPassword, setRwaPassword] = useState("");
   const [rwaAddress, setRwaAddress] = useState("");
+  const [rwaKeyDesc, setRwaKeyDesc] = useState("");
 
 useEffect(() => {
   if (ipfsPdfCid && !rwaAddress) {
@@ -62,6 +63,11 @@ useEffect(() => {
   const handleInitialSupplyChange = (e) => {
     setInitialSupply(e.target.value);
   };
+
+  const handleRwaKeyDescChange = (e) => {
+    setRwaKeyDesc(e.target.value);
+  };
+
   console.log("pdf == ", ipfsPdfCid);
   return (
     <div>
@@ -211,11 +217,26 @@ useEffect(() => {
                 />
               </Col>
             </Form.Group>
+
+	  <Form.Group as={Row}>
+    <Form.Label column sm="4"><strong>RWA Key Description</strong></Form.Label>
+    <Col sm="8">
+      <Form.Control
+        size="sm"
+        type="text"
+        value={rwaKeyDesc}
+        onChange={handleRwaKeyDescChange}
+        placeholder="Enter RWA Key Description"
+      />
+    </Col>
+  </Form.Group>
+
           </Form>
 
           <AddRwaDBComponent
             rwaPassword={rwaPassword}
             rwaProspectusAddr={rwaAddress}
+	  rwaKeyDesc={rwaKeyDesc}
           />
         </Col>
       </Row>

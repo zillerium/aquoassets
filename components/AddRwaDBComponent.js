@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function AddRwaDBComponent({ rwaPassword, rwaProspectusAddr }) {
+function AddRwaDBComponent({ rwaPassword, rwaProspectusAddr, rwaKeyDesc }) {
   const [statusMessage, setStatusMessage] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +16,8 @@ function AddRwaDBComponent({ rwaPassword, rwaProspectusAddr }) {
     try {
       const response = await axios.post('https://peacioapi.com:3002/regRwaAPI', {
         rwaPassword,
-	      rwaProspectusAddr
+	      rwaProspectusAddr,
+	      rwaKeyDesc
       });
 
       // Check the server response
