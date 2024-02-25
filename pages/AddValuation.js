@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddRwaValuation from "../components/AddRwaValuation";
 import { Form, Row, Col, Container } from "react-bootstrap";
 import GetAllRwasComponent from "../components/GetAllRwasComponent"; // Import the new component
+import GetRwaPriceTable from "../components/GetRwaPriceTable"; // Import the GetRwaPriceTable component
 
 function AddValuation() {
   const [rwaId, setRwaId] = useState("");
@@ -131,6 +132,7 @@ const [password, setPassword] = useState("");
 	    rwapassword={password} // Pass the password as a prop
 
           />
+          {rwaId && <GetRwaPriceTable rwaId={rwaId} />}
 
 
 
