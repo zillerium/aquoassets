@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Row, Col, Container, Button } from "react-bootstrap"; // Import Button from react-bootstrap
 
-function AddRwaValuation({ rwaId, valuation, rwaDesc, priceDate, currency }) {
+function AddRwaValuation({ rwaId, valuation, rwaDesc, priceDate, currency, rwapassword }) {
   const [statusMessage, setStatusMessage] = useState(''); // Updated state to handle all messages
 
   const handleSubmit = async (e) => {
@@ -25,6 +25,8 @@ function AddRwaValuation({ rwaId, valuation, rwaDesc, priceDate, currency }) {
         rwaDesc,
         rwaPriceDate: priceDate,
         rwaCurrency: currency,
+	            rwapassword // Include the password in the API request
+
       });
 
       // Check the server response

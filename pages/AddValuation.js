@@ -9,6 +9,7 @@ function AddValuation() {
   const [rwaDesc, setRwaDesc] = useState("");
   const [priceDate, setPriceDate] = useState(new Date().toISOString().split('T')[0]); // Default to today's date in YYYY-MM-DD format
   const [currency, setCurrency] = useState("USD");
+const [password, setPassword] = useState("");
 
   const handleRwaIdChange = (selectedId) => {
     setRwaId(selectedId); // Update the rwaId state with the selected ID
@@ -108,6 +109,18 @@ function AddValuation() {
               </Col>
             </Form.Group>
           </Form>
+<Form.Group as={Row}>
+  <Form.Label column sm="4"><strong>Password</strong></Form.Label>
+  <Col sm="8">
+    <Form.Control
+      size="sm"
+      type="password" // Ensure this is type 'password' to hide input
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      placeholder="Enter Password"
+    />
+  </Col>
+</Form.Group>
 
           <AddRwaValuation
             rwaId={rwaId}
@@ -115,6 +128,8 @@ function AddValuation() {
             rwaDesc={rwaDesc}
             priceDate={priceDate}
             currency={currency}
+	    rwapassword={password} // Pass the password as a prop
+
           />
 
 
