@@ -156,8 +156,14 @@ const [showOracleRequest, setShowOracleRequest] = useState(false);
 
         </Col>
       </Row>
+<Row className="justify-content-md-center my-4">
+          <Col md="auto">
+            <Button onClick={handlePostOracleClick}>Post Oracle</Button>
+          </Col>
+        </Row>
+
         {/* Conditionally render OracleRequest component */}
-        {rwaId && (
+        {showOracleRequest && (
           <Row className="justify-content-md-center my-4">
             <Col md="auto">
               <OracleRequest
