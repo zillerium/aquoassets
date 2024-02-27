@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import AddRwaValuation from "../components/AddRwaValuation";
 import { Form, Row, Col, Container, Button } from "react-bootstrap";
 import GetAllRwasComponent from "../components/GetAllRwasComponent"; // Import the new component
@@ -10,8 +10,15 @@ import WalletDetails from "../components/WalletDetails";
 import OracleRequest from "../components/OracleRequest";
 import oracleABI from "../lib/oracleABI.json";
 import oracleAddressData from "../lib/oracleAddress.json";
+import getTenABI from "../lib/getTenABI.json";
+import getTenAddressData from "../lib/getTenAddress.json";
+import OracleResponseReader from "../components/OracleResponseReader"; // Import the new component
+import GetTenComponent from "../components/GetTenComponent"; // Import the new component
 
 function AddValuation() {
+
+	  const { isWalletConnected } = useContext(WalletContext);
+
   const [rwaId, setRwaId] = useState("");
   const [valuation, setValuation] = useState("");
   const [rwaDesc, setRwaDesc] = useState("");
@@ -157,7 +164,7 @@ const [showOracleRequest, setShowOracleRequest] = useState(false);
         </Col>
       </Row>
         {/* Conditionally render OracleRequest component */}
-        {rwaId && (
+        {rwaId &&  (
           <Row className="justify-content-md-center my-4">
             <Col md="auto">
               <OracleRequest
@@ -168,6 +175,24 @@ const [showOracleRequest, setShowOracleRequest] = useState(false);
             </Col>
           </Row>
           )}
+        <Row className="justify-content-md-center my-4">
+	  <Col md={6}>
+	        <Button onClick={handlePostOracleClick} >Show Oracle Response</Button>
+          </Col>
+	  </Row>
+{showOracleRequest  && (
+        <Row className="justify-content-md-center my-4">
+          <Col md={6}>
+            <h3 className="font-mono mb-4 text-center">Oracle Response</h3>
+            <OracleResponseReader
+              oracleAddress={oracleAddressData.address}
+              oracleABI={oracleABI}
+            />
+          </Col>
+        </Row>
+      )}
+
+
     </Container>
   );
 }

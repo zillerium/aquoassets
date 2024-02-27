@@ -17,7 +17,7 @@ function OracleRequest({
     functionName: 'request',
     args: [rwaId],
   });
-
+ console.log("config = ", config);
   // Execute the write operation
   const { write, isLoading, isSuccess } = useContractWrite(config);
 

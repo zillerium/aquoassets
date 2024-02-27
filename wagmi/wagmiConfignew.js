@@ -3,13 +3,13 @@ import { alchemyProvider } from '@wagmi/core/providers/alchemy';
 import { publicProvider } from '@wagmi/core/providers/public';
 import { InjectedConnector } from '@wagmi/core/connectors/injected';
 
-import { createWalletClient, createConfig, configureChains } from 'wagmi';
+import { chain, createWalletClient, createConfig, configureChains } from 'wagmi';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { sepolia } from 'wagmi/chains';
+import { sepolia, polygonMumbai } from 'wagmi/chains';
 
 //import { chain, configureChains } from 'wagmi'
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [sepolia],
+  [polygonMumbai],
   [publicProvider()],
 );
 
