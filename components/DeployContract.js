@@ -1,44 +1,67 @@
-import { ethers } from 'ethers';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useContractWrite, usePrepareContractWrite } from 'wagmi';
+import { WalletContext } from '../lib/WalletContext';
 import { Button } from 'react-bootstrap';
-import contractABI from "../lib/contractABI.json";
-import bytecode1 from "../lib/contractByteCode.js";
 
-const DeployContract = () => {
+function DeployContract({
+  deployContractAddress,
+  deployContractABI,
+  initialSupply,
+  ipfsProspectusCid,
+  ipfsImageCid,
+  enabledButton
+}) {
+  const { receiverAddress, execTransfer, setExecTransfer } = useContext(WalletContext);
 
-  const [initialSupply, setInitialSupply] = useState(0);
-console.log("ethers == ", ethers);
-  const handleDeploy = async () => {
-    if (typeof window.ethereum !== 'undefined') {
-      console.log("ethers new == ", ethers);
-      console.log("ethers new providers  == ", ethers.providers);
-//      const provider = new ethers.BrowserProvider(window.ethereum);
+  // Ensure initialSupply is a positive number
+  const isInitialSupplyPositive = Number(initialSupply) > 0;
+  const [writeError, setWriteError] = useState(null); // State for write errors
+  const [txnStatus, setTxnStatus] = useState(null); // State for transaction status
 
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const factory = new ethers.ContractFactory(contractABI, bytecode1, signer);
-      const contract = await factory.deploy(initialSupply);
-      await contract.deployed();
-      console.log('Contract deployed to:', contract.address);
+  // Log the data for debugging
+  console.log("Data for new record: ", ipfsProspectusCid, ipfsImageCid, initialSupply);
+
+  // Prepare contract write operation
+  const { config, error: prepareError } = usePrepareContractWrite({
+    address: deployContractAddress,
+    abi: deployContractABI,
+    functionName: 'deployAndRegisterContract',
+    args: [ipfsProspectusCid, ipfsImageCid, initialSupply],
+    enabled: isInitialSupplyPositive && enabledButton, // Enable writing only if initialSupply is positive and button is enabled
+  });
+
+  // Execute contract write operation
+  const { data, isLoading, isSuccess, write, error: writeErrorHook } = useContractWrite(config);
+
+  const deployContract = async () => {
+    if (typeof write === 'function' && isInitialSupplyPositive) {
+      try {
+        await write();
+        setTxnStatus("Transaction initiated on the blockchain.");
+      } catch (err) {
+        setWriteError(err.message);
+      }
     } else {
-      console.error('Ethereum provider is not available');
+      console.error('Write function not available or initial supply is not positive.');
     }
+  };
+
+  if (isSuccess) {
+    setExecTransfer(false); // Reset transfer state on success
   }
 
   return (
     <>
-      <h1>Deploy New Contract</h1>
-      <div>
-        <Button onClick={handleDeploy}>Deploy</Button>
-      </div>
-      <div>
-        <input 
-          placeholder="share allocation" 
-          type="text" 
-          onChange={(e) => setInitialSupply(parseInt(e.target.value))}
-        />
-      </div>
-      <p>Initial Supply: {initialSupply}</p>
+      <Button
+        variant="primary"
+        onClick={deployContract}
+      >
+        Deploy
+      </Button>
+      {prepareError && <div>Error in preparation: {prepareError.message}</div>}
+      {writeError && <div>Error in contract write: {writeError}</div>}
+      {writeErrorHook && <div>Error in write hook: {writeErrorHook.message}</div>}
+      {txnStatus && !writeError && !prepareError && !writeErrorHook && <div>Transaction Status: {txnStatus}</div>}
     </>
   );
 }

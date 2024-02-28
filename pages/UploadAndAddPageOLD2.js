@@ -13,10 +13,9 @@ import AddProspectus from "../components/AddProspectus";
 import ProcessSteps1to3 from "../components/ProcessSteps1to3";
 import ProcessSteps4to6 from "../components/ProcessSteps4to6";
 import AddRwaDBComponent from "../components/AddRwaDBComponent";
-import DeployContract from "../components/DeployContract";
+import DeployListContract from "../components/DeployListContract";
 import deployContractAddress from "../lib/deployContractAddress.json";
 import listContractAddress from "../lib/listContractAddress.json";
-import prospectusContractAddress from "../lib/prospectusesContractAddress.json";
 import deployContractABI from "../lib/deployContractABI.json";
 
 const addProspectusesAddress = addProspectusesAddressData.address;
@@ -175,20 +174,16 @@ useEffect(() => {
               placeholder="Initial Supply"
             />
           </Col>
-	  <Col></Col>
-	  </Row>
-        <Row className="my-3">
           <Col>
-
-      <DeployContract
-        deployContractAddress={deployContractAddress.address}
-        deployContractABI={deployContractABI}
-        initialSupply={initialSupply}
-        ipfsProspectusCid={ipfsPdfCid}
-        ipfsImageCid={ipfsImageCid}
-        enabledButton={true}
-      />
-
+            <DeployListContract
+              deployContractAddress={deployContractAddress.address}
+              deployContractABI={deployContractABI}
+              listContractAddress={listContractAddress.address}
+              initialSupply={initialSupply}
+              ipfsProspectusCid={ipfsPdfCid}
+              ipfsImageCid={ipfsImageCid}
+              enabledButton={signed}
+            />
           </Col>
         </Row>
 	  <hr />
@@ -218,7 +213,7 @@ useEffect(() => {
                   type="text"
                   value={rwaAddress} // Amended line to default to ipfsPdfCid if available
                   onChange={handleRwaAddressChange}
-                  placeholder={"Enter IPFS Prospectus Address"} // Amended line for conditional placeholder
+                  placeholder={"Enter RWA Address"} // Amended line for conditional placeholder
                 />
               </Col>
             </Form.Group>
