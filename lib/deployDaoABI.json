@@ -1,0 +1,68 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_daoList",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "daoAddress",
+				"type": "address"
+			}
+		],
+		"name": "daoDeployed",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "daoList",
+		"outputs": [
+			{
+				"internalType": "contract DAOList",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_rwaContract",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_poolAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_dilution",
+				"type": "uint256"
+			}
+		],
+		"name": "deployAndRegisterDAO",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
