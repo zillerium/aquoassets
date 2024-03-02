@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import AssetManager from "../components/AssetManager";
 import ShowAllContractsList from "../components/ShowAllContractsList";
-import { Button, Form, Card, Row, Col, Container } from "react-bootstrap";
+import { Image, Button, Form, Card, Row, Col, Container } from "react-bootstrap";
 import { WalletContext } from "../lib/WalletContext";
 import contractABI from "../lib/contractABI.json";
 import listContractABI from "../lib/listContractABI.json";
@@ -12,6 +12,7 @@ import WalletControls from "../components/WalletControls";
 import ShareholdersList from "../components/ShareholdersList";
 import WalletDetails from "../components/WalletDetails";
 import DeployPool from "../components/DeployPool";
+import Header from "../components/Header";
 
 function PoolAdd() {
   const { userAddress, setUserAddress } = useContext(WalletContext);
@@ -21,21 +22,15 @@ function PoolAdd() {
   const handleAddressChange = (e) => {
     setQueryAddress(e.target.value);
   }
-
   return (
     <Container className="bg-white text-dark mt-4">
+	  <Header 
+	   imageAddress="https://ipfs.io/ipfs/QmdzYdTQuSxRuP9RtV1zGTczdHqgjf45Qhesr9wbqQii9y"
+        imageLabel="Liquidity"
+	  pageHeader="Pool Deployment"
+        pageText= "Start a new pool so that RWAs can be aggregrated"
+	  />
         <Card bg="light" text="dark">
-            <Card.Header>
-                <Row>
-                    <Col sm={8}>
-                        <h1>Create a Pool</h1>
-                    </Col>
-                    <Col sm={4} className="text-right">
-                        <WalletControls />
-                    </Col>
-                </Row>
-                <WalletDetails />
-            </Card.Header>
             <Card.Body>
 	       <DeployPool
         deployPoolAddress={deployPoolAddress.address}

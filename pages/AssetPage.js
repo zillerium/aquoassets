@@ -9,6 +9,7 @@ import listContractAddress from "../lib/listContractAddress.json";
 import WalletControls from "../components/WalletControls";
 import ShareholdersList from "../components/ShareholdersList";
 import WalletDetails from "../components/WalletDetails";
+import Header from "../components/Header";
 
 function AssetPage() {
   const { userAddress, setUserAddress } = useContext(WalletContext);
@@ -21,18 +22,13 @@ function AssetPage() {
 
   return (
     <Container className="bg-white text-dark mt-4">
+	                                               <Header
+           imageAddress="https://ipfs.io/ipfs/QmPvnxsinra7f9XphtQK2FfRsAnHsQ7Y158bNQJziBvSip"
+        imageLabel="Wallets in RWA Contracts List"
+          pageHeader="Wallets in RWA Contracts List"
+        pageText= "List of Wallets for RWA Contracts"
+          />
         <Card bg="light" text="dark">
-            <Card.Header>
-                <Row>
-                    <Col sm={8}>
-                        <h1>List Assets for Asset Contracts</h1>
-                    </Col>
-                    <Col sm={4} className="text-right">
-                        <WalletControls />
-                    </Col>
-                </Row>
-                <WalletDetails />
-            </Card.Header>
             <Card.Body>
                 <h3>Available Contracts:</h3>
                 <ShowAllContractsList

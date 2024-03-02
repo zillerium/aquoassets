@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Image, Container, Row, Col, Form, Button } from "react-bootstrap";
 import WalletSign from "../components/WalletSign";
 import WalletDetails from "../components/WalletDetails";
 import DeployDAO from "../components/DeployDAO";
 import deployDaoAddress from "../lib/deployDaoAddress.json";
 import deployDaoABI from "../lib/deployDaoABI.json";
+import Header from "../components/Header";
 
 function DaoAdd() {
   const [rwaContract, setRwaContract] = useState("");
@@ -27,19 +28,22 @@ function DaoAdd() {
   // Check if all fields have values
   const allFieldsEntered = rwaContract && poolAddress && dilutionFactor;
 
+https://ipfs.io/ipfs/QmZ63eyxAJ3oAf5ioVEgAJ3Lc1d8qwLjfLrZS5VRd4fb8T
+
   return (
     <div>
       <Container>
-        <Row>
-          <WalletSign />
-        </Row>
-        <Row>
-          <WalletDetails />
-        </Row>
+	                  <Header
+           imageAddress="https://ipfs.io/ipfs/QmZ63eyxAJ3oAf5ioVEgAJ3Lc1d8qwLjfLrZS5VRd4fb8T"
+        imageLabel="DAO Deployment"
+          pageHeader="DAO Deployment"
+        pageText= "This is a proposal to join the Liquidity Pool entered and subject the proposal to a DAO vote."
+          />
+          {/* Column for Wallet Connect and Title */}
+
+        {/* Row for Wallet Details */}
+
         <hr />
-        <Row className="justify-content-center my-4">
-          <h4>DAO Deployment</h4>
-        </Row>
         <Row className="my-3">
           <Col>
             <Form.Control

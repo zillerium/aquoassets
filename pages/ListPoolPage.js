@@ -10,6 +10,7 @@ import listPoolABI from "../lib/listPoolABI.json";
 import listPoolAddress from "../lib/listPoolAddress.json";
 import WalletControls from "../components/WalletControls";
 import WalletDetails from "../components/WalletDetails";
+import Header from "../components/Header";
 
 function ListPoolPage() {
   const { userAddress, setUserAddress } = useContext(WalletContext);
@@ -22,20 +23,15 @@ function ListPoolPage() {
 
   return (
     <Container className="bg-white text-dark mt-4">
+	        <Header
+           imageAddress="https://ipfs.io/ipfs/QmSaCRpy4wF9JhsHeoMi4bN2uwy83BCoBAgkofgkz6946E"
+        imageLabel="List Pools"
+          pageHeader="List Pools"
+        pageText= "List all the Pools"
+          />
         <Card bg="light" text="dark">
-            <Card.Header>
-                <Row>
-                    <Col sm={8}>
-                        <h1>List Pools</h1>
-                    </Col>
-                    <Col sm={4} className="text-right">
-                        <WalletControls />
-                    </Col>
-                </Row>
-                <WalletDetails />
-            </Card.Header>
             <Card.Body>
-                <h3>Available Contracts:</h3>
+                <h3>Available Pools:</h3>
                 <ShowAllPoolsLinkList
                     listPoolAddress={listPoolAddress.address}
                     listPoolABI={listPoolABI}

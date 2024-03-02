@@ -8,6 +8,7 @@ import listDaoABI from "../lib/listDaoABI.json";
 import listDaoAddress from "../lib/listDaoAddress.json";
 import WalletControls from "../components/WalletControls";
 import WalletDetails from "../components/WalletDetails";
+import Header from "../components/Header";
 
 function ListDaosPage() {
   const { userAddress, setUserAddress } = useContext(WalletContext);
@@ -17,21 +18,16 @@ function ListDaosPage() {
   const handleAddressChange = (e) => {
     setQueryAddress(e.target.value);
   }
-
   return (
     <Container className="bg-white text-dark mt-4">
+	                          <Header
+           imageAddress="https://ipfs.io/ipfs/QmSGXE9c64JWW26BHVGnn8J1oSZVLUuJ1xdZVhXPo7wZf9"
+        imageLabel="List DAOs"
+          pageHeader="List DAOs"
+        pageText= "This is a list of all the DAOs"
+          />
+
         <Card bg="light" text="dark">
-            <Card.Header>
-                <Row>
-                    <Col sm={8}>
-                        <h1>List Daos</h1>
-                    </Col>
-                    <Col sm={4} className="text-right">
-                        <WalletControls />
-                    </Col>
-                </Row>
-                <WalletDetails />
-            </Card.Header>
             <Card.Body>
                 <h3>Available Daos</h3>
                 <ShowAllDaosLinkList

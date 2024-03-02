@@ -8,6 +8,7 @@ import listContractAddress from "../lib/listContractAddress.json";
 import WalletControls from "../components/WalletControls";
 import WalletDetails from "../components/WalletDetails";
 import listContractABI from "../lib/listContractABI.json";
+import Header from "../components/Header";
 
 function TransferAssetPage() {
   const { userAddress, setUserAddress } = useContext(WalletContext);  
@@ -24,9 +25,13 @@ function TransferAssetPage() {
 
   return (
     <div className="container mt-4">
-      <h2 className="font-mono mb-4">Transfer Assets</h2>
-      <WalletControls />
-      <WalletDetails />
+	                                                     <Header
+           imageAddress="https://ipfs.io/ipfs/QmbpbR5VqwrSVpWtsfqb7XVqoTVeqytzydpmjkCnT187WJ"
+        imageLabel="Transfer Assets in Contracts"
+          pageHeader="Transfer Assets in Contracts"
+        pageText= "Transfer assets wallet to wallet within a contract"
+          />
+      <h2 className="font-mono mb-4">RWA Contract List</h2>
       <Form>
         <ShowAllContractsList
             listContractAddress={listContractAddress.address}

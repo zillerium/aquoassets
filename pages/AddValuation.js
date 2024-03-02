@@ -14,6 +14,7 @@ import getTenABI from "../lib/getTenABI.json";
 import getTenAddressData from "../lib/getTenAddress.json";
 import OracleResponseReader from "../components/OracleResponseReader"; // Import the new component
 import GetTenComponent from "../components/GetTenComponent"; // Import the new component
+import Header from "../components/Header";
 
 function AddValuation() {
 
@@ -58,12 +59,12 @@ const [showOracleRequest, setShowOracleRequest] = useState(false);
 
   return (
     <Container className="mt-4">
-	   <Row>
-          <WalletSign />
-        </Row>
-        <Row>
-          <WalletDetails />
-        </Row>
+	                                <Header
+           imageAddress="https://ipfs.io/ipfs/QmfVk74qZvLbbJzwfApb5FNcnsxNTDPT6kwBGtWfhupHBC"
+        imageLabel="Add Asset Valuation"
+          pageHeader="Add Asset Valuation"
+        pageText= "This screen is used to add an off-chain valuation on an RWA"
+          />
       <Row className="justify-content-md-center">
         <Col md={6}>
           <h2 className="font-mono mb-4 text-center">Add Asset Valuation</h2>
