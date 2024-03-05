@@ -2,8 +2,7 @@
 
 import { useRouter } from 'next/router';
 import React from 'react';
-import GetContractDetails from '../components/GetContractDetails'; // make sure to use the correct path to your component
-import ShareholdersList from '../components/ShareholdersList'; // make sure to use the correct path to your component
+import GetDaoDetails from '../components/GetDaoDetails'; // make sure to use the correct path to your component
 
 export default function DAOPage() {
   const router = useRouter();
@@ -15,6 +14,9 @@ export default function DAOPage() {
       {q ? (
         <>
           <p>DAO Address: {q}</p>
+	        <GetDaoDetails
+            daoAddress={q}
+          />
         </>
       ) : (
         <p>Please provide a contract query parameter.</p>
