@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useContractRead } from 'wagmi';
 import daoContractABI from "../lib/daoContractABI.json";
+import VoteOnDAO from "./VoteOnDAO";
+import ExecuteDAOProposal from "./ExecuteDAOProposal";
+import WalletControls from "./WalletControls";
+import WalletDetails from "./WalletDetails";
 
 function GetDaoDetails({ daoAddress }) {
   const [daoDetails, setDaoDetails] = useState(null);
@@ -40,6 +44,10 @@ function GetDaoDetails({ daoAddress }) {
 
   return (
   <div>
+	  <WalletControls />
+	  <WalletDetails />
+	   <VoteOnDAO daoAddress={daoAddress} />
+	   <ExecuteDAOProposal daoAddress={daoAddress} />
     {daoDetails ? (
       <table className="table">
         <thead>
